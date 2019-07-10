@@ -14,8 +14,6 @@
     transition: $args;
 }
 
-
-
 @mixin box-shadow($args...) {
     -webkit-box-shadow: $args;
     -moz-box-shadow: $args;
@@ -51,4 +49,10 @@
     -moz-border-radius: $radius;
     -ms-border-radius: $radius;
     -o-border-radius: $radius;
+}
+
+@mixin fontregular {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
 }
