@@ -117,15 +117,13 @@
         }
     });
 
+ 
 
-
-   
 
 
 
 
 });
-
 
 
 
@@ -227,8 +225,6 @@ $(window).on('load', function() {
 
 
 
-
-
 function masonryEffect() {
     if ($('.section-workshow').length) {
         var maxAvailWidth = 0;
@@ -251,16 +247,19 @@ function masonryEffect() {
                 maxAvailWidth = parseInt($(".filter-box").css("max-width"));
 //console.log(maxAvailWidth,'maxAvailWidth');
                 $(".filter-box").css("max-width", maxAvailWidth + "px");
+                //console.log('1');
             } else if (winWidth <= 1024 && winWidth > 640) {
                 maxAvailWidth = winWidth - 50;
                 //maxAvailWidth = 600;
                 maxBoxWidth = maxAvailWidth / 2;
                 //console.log(maxBoxWidth);
                 $(".filter-box").css("max-width", maxAvailWidth + "px");
+                //console.log('2');
             } else {
                 maxAvailWidth = winWidth - 20;
                 maxBoxWidth = winWidth - 20;
                 $(".filter-box").css("max-width", maxAvailWidth + "px");
+                //console.log('3');
             }
             
 
@@ -280,6 +279,7 @@ function masonryEffect() {
                     }
                     dataRowNum++;
                 }
+                //console.log(winWidth,'width');
                 //$(".item[data-row="+dataRowNum+"]").eq(0).addClass("RowLine");
                 $(this).css({ "left": width + "px", "top": height + "px" });
                 $(this).attr("data-row", dataRowNum);
