@@ -558,6 +558,12 @@ main.home{
                                 position: relative;
                                 overflow: hidden;
                                 
+                                .desc{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    height: 100%;
+                                }
                                 
                                 .content{
                                     display: block;
