@@ -265,7 +265,6 @@ function masonryEffect() {
             
            
             if (width < maxAvailWidth) {
-                console.log(width);
                 if (i > 0) {
                     width += $(this).prevAll(".item:visible").outerWidth(true) - 10;
                 } else {
