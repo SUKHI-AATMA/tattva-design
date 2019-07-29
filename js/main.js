@@ -228,7 +228,8 @@ $(window).on('load', function() {
 function masonryEffect() {
     if ($('.section-workshow').length) {
         var maxAvailWidth = 0;
-        var boxWidth = 600;
+        // var boxWidth = 600;
+        var boxWidth;
         var maxBoxWidth = boxWidth;
         var minBoxWidth = maxBoxWidth / 2;
         var width = 0;
@@ -262,11 +263,11 @@ function masonryEffect() {
                 //console.log('3');
             }
             
-
            
             if (width < maxAvailWidth) {
+                console.log(width);
                 if (i > 0) {
-                    width += $(this).prevAll(".item:visible").outerWidth(true);
+                    width += $(this).prevAll(".item:visible").outerWidth(true) - 10;
                 } else {
                     width = 0;
                 }
