@@ -1,5 +1,11 @@
  $(document).ready(function() {
 
+    $('.scroll-arrow').click (function() {
+        $('html, body').animate({scrollTop: $('.section-abt').offset().top} , 1200);
+        return false;
+      });
+
+
     // Home page - slider
     var owlabt = $('#hmSliderCarousel .owl-carousel');
     owlabt.owlCarousel({
@@ -99,33 +105,88 @@
         lastScrollTop = st;
     }
 
-
-
-    // work-detail page slider
-    var $carousel = $('.carousel').flickity({
-        contain: true,
-        pageDots: false,
-        freeScroll: true
-    });
-
-
-    var $carousel = $('.carousel').flickity();
-
-    $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
-        if ( typeof cellIndex == 'number' ) {
-            $carousel.flickity( 'selectCell', cellIndex );
-        }
-    });
-
  
-
-
-
+    // project json
+    projectDetail(); 
 
 
 });
 
 
+
+// json function
+function projectDetail() {
+    var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+    $.getJSON(artboardURL, function(data) {
+
+        console.log(data);
+        
+        var results = data.results;
+
+        $("#projectDetail").html('<ul class="work-wrap scroll carousel">');
+        var output = "";     
+
+        results.forEach(function (result) { 
+            output += "<li class='col'>";
+            output +="<div class='inner-col'>";
+            output +="<h2>" + result.title + "</h2>";
+            output += "<p>" + result.desc + "</p>";
+            output+="</div>";
+            output += "</li>";  
+            output += "<li class='col'><img src = '" + result.p1 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p2 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p3 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p4 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p5 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p6 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p7 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p8 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p9 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p10 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p11 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p12 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p13 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p14 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p15 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p16 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p17 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p18 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p19 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p20 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p21 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p22 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p23 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p24 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p25 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p26 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p27 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p28 + "'/></li>";
+            output += "<li class='col'><img src = '" + result.p29 + "'/></li>";                    
+
+        });
+        $("#projectDetail ul").append(output);
+        $("#projectDetail ul").append('</ul>');
+
+        setTimeout(function(){
+            // work-detail page slider
+            var $carousel = $('.carousel').flickity({
+                contain: true,
+                pageDots: false,
+                freeScroll: true
+            });
+
+            var $carousel = $('.carousel').flickity();
+
+            $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
+                if ( typeof cellIndex == 'number' ) {
+                    $carousel.flickity( 'selectCell', cellIndex );
+                }
+            });
+        },500);
+
+
+    });
+}
 
 
 
@@ -142,20 +203,6 @@ $(window).scroll(function() {
     }
 });
 
-// scroll effects for header
-// var prevScrollpos = window.pageYOffset;
-// //console.log('prev',prevScrollpos);
-// window.onscroll = function() {
-//     var currentScrollPos = window.pageYOffset;
-//     //console.log('current',currentScrollPos);
-//     if (prevScrollpos > currentScrollPos) {
-//         document.getElementById("header").style.top = "0";
-//     } else {
-//         document.getElementById("header").style.top = "-92px";
-//     }
-//     prevScrollpos = currentScrollPos;
-// }
-
 
 // contact-form
 $("#contactSubmit").on("click", function(e) {
@@ -163,6 +210,7 @@ $("#contactSubmit").on("click", function(e) {
     contactFormSubmit();
     //alert('hi');
 });
+
 
 
 // contact form validation
@@ -294,3 +342,21 @@ function masonryEffect() {
     }
 
 }
+
+
+// Use the CDN or host the script yourself
+// https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js
+// https://matthewelsom.com/assets/js/libs/instafeed.min.js
+
+// var userFeed = new Instafeed({
+//     get: 'user',
+//     userId: '8425813739',
+//     clientId: '5dd3f6b936c445d78907d1844c1006cb',
+//     accessToken: '8425813739.5dd3f6b.4d57dbd693ad4a4f9df5e0f9b26d1a36',
+//     resolution: 'standard_resolution',
+//     template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
+//     sortBy: 'most-recent',
+//     limit: 3,
+//     links: false
+//   });
+//   userFeed.run();
