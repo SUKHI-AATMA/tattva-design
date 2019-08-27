@@ -975,8 +975,21 @@ main.work-detail{
                     .box{
                         width: 100%;
                         height: 520px;
-                        background: $dark;
+                        border: 2px solid $dark;
+
+                        iframe{
+                            width: 100%;
+                            height:100%;
+                        }
                     }
+                    .container {
+                        width: 200px;
+                        height: 200px;
+                        position: relative;
+                        border-top: 4px solid #e74c3c;
+                    }
+                    
+                    
                 }
 
                 .contact-wrap{
