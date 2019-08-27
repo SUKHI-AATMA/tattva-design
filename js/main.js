@@ -5,6 +5,14 @@
         return false;
       });
 
+    $("#contactSubmit").submit(function(e) {
+        e.preventDefault();
+        
+        var $form = $(this);
+        $.post($form.attr("action"), $form.serialize()).then(function() {
+            alert("Thank you!");
+        });
+    });
 
     // Home page - slider
     var owlabt = $('#hmSliderCarousel .owl-carousel');
