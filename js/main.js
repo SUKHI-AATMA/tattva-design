@@ -111,7 +111,7 @@
 $(window).on('load',function () {
     $('body').removeClass('loader');
     setTimeout(function () {
-        console.log('hi');
+        //console.log('hi');
         $('.loader').fadeOut('300', function () {
             $(this).remove();
         });
