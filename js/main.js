@@ -48,25 +48,8 @@
         },
     });
 
-    // about page - Team
-    var owlTeam = $('#team .owl-carousel');
-    owlTeam.owlCarousel({
-        //margin:50,
-        nav:true,
-        mouseDrag:false,
-        touchDrag:false,
-        responsive:{
-            0:{
-                items:1,        
-                mouseDrag:true,
-                touchDrag:true,
-            },
-            1000:{
-                items:3
-            }
-        }
-    });
-
+    
+   
 
 
     // Hide Header on on scroll down
@@ -109,18 +92,33 @@
     // project json
     projectDetail(); 
 
+    // Team json
+    team();
+
+
 
 });
 
 
+$(window).on('load',function () {
+    $('body').removeClass('loader');
+    setTimeout(function () {
+        console.log('hi');
+        $('.loader').fadeOut('300', function () {
+            $(this).remove();
+        });
+    }, 900);
+    
+});
 
-// json function
+
+// Project Detail (Artboard) JSON Function
 function projectDetail() {
     var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
     $.getJSON(artboardURL, function(data) {
 
         console.log(data);
-        
+
         var results = data.results;
 
         $("#projectDetail").html('<ul class="work-wrap scroll carousel">');
@@ -180,6 +178,68 @@ function projectDetail() {
             $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
                 if ( typeof cellIndex == 'number' ) {
                     $carousel.flickity( 'selectCell', cellIndex );
+                }
+            });
+        },500);
+
+
+    });
+}
+
+
+// Team JSON Function
+function team() {
+    var teamURL = "https://api.sheetson.com/v1/sheets/tattvaTeam?spreadsheetId=1mPC7qLKZqR_Zgz-8G4z8LiEMw43gyk5YjcbNQWsaZFQ"
+    $.getJSON(teamURL, function(data) {
+
+        console.log(data);
+
+        var results = data.results;
+
+        $("#team").html('<div class="owl-carousel owl-theme">');
+        var output = "";     
+
+        results.forEach(function (result) { 
+            output += "<div class='item'>";
+            output += "<div class='inner-col'>";
+            output += "<div class='img'><img src = '" + result.img + "'/></div>";
+            output += "<div class='desc'>";
+            output += "<h4>" + result.name + "</h4>";
+            output += "<span>" + result.designation + "</span>";
+            output += "<p>" + result.p1 + "</p>";
+            output += "<p>" + result.p2 + "</p>";
+            output += "<ul class='social'>";
+            output += "<li><a href = '" + result.link1 + "'></a></li>"; 
+            output += "<li><a href = '" + result.link2 + "'></a></li>"; 
+            output += "<li><a href = '" + result.link3 + "'></a></li>"; 
+            output += "<li><a href = '" + result.link4 + "'></a></li>"; 
+            output += "</ul>";
+            output += "</div>";
+            output += "</div>";
+            output += "</div>"; 
+            
+        });
+        $("#team div").append(output);
+        $("#team div").append('</div>');
+
+        
+        setTimeout(function(){
+            // about page - Team
+            var owlTeam = $('#team .owl-carousel');
+            owlTeam.owlCarousel({
+                //margin:50,
+                nav:true,
+                mouseDrag:false,
+                touchDrag:false,
+                responsive:{
+                    0:{
+                        items:1,        
+                        mouseDrag:true,
+                        touchDrag:true,
+                    },
+                    1000:{
+                        items:3
+                    }
                 }
             });
         },500);
@@ -314,7 +374,7 @@ function masonryEffect() {
            
             if (width < maxAvailWidth) {
                 if (i > 0) {
-                    width += $(this).prevAll(".item:visible").outerWidth(true) - 10;
+                    width += $(this).prevAll(".item:visible").outerWidth(true);  // - 10;
                 } else {
                     width = 0;
                 }
