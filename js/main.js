@@ -7,10 +7,9 @@
 
     $("#contactSubmit").submit(function(e) {
         e.preventDefault();
-        
         var $form = $(this);
         $.post($form.attr("action"), $form.serialize()).then(function() {
-            alert("Thank you!");
+            //alert("Thank you!");
         });
     });
 
@@ -305,7 +304,7 @@ function contactFormSubmit() {
 
     if ($("#message").removeClass("err").siblings("label").removeClass('err-label').html("Message"), !1);
 
-	alert('thank you');
+	//alert('thank you');
 }
 
 
