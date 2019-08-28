@@ -7,7 +7,6 @@
 
     $("#contact").submit(function(e) {
         e.preventDefault();
-        contactFormSubmit();
         var $form = $(this);
         $.post($form.attr("action"), $form.serialize()).then(function() {
             //alert("Thank you!");
@@ -17,11 +16,12 @@
 
     
     // contact-form
-    // $("#contactSubmit").on("click", function(e) {
-    //     e.preventDefault();
-    //     contactFormSubmit();
-    //     //alert('hi');
-    // });
+    $("#contactSubmit").on("click", function(e) {
+        e.preventDefault();
+        contactFormSubmit();
+        //alert('hi');
+        console.log("thank you");
+    });
 
     // Home page - slider
     var owlabt = $('#hmSliderCarousel .owl-carousel');
