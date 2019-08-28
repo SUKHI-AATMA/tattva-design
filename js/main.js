@@ -5,15 +5,17 @@
         return false;
       });
 
-    $("#contactSubmit").submit(function(e) {
+    $("#contact").submit(function(e) {
         e.preventDefault();
         contactFormSubmit();
         var $form = $(this);
         $.post($form.attr("action"), $form.serialize()).then(function() {
             //alert("Thank you!");
+            console.log("thank you");
         });
     });
 
+    
     // contact-form
     // $("#contactSubmit").on("click", function(e) {
     //     e.preventDefault();
