@@ -7,11 +7,19 @@
 
     $("#contactSubmit").submit(function(e) {
         e.preventDefault();
+        contactFormSubmit();
         var $form = $(this);
         $.post($form.attr("action"), $form.serialize()).then(function() {
             //alert("Thank you!");
         });
     });
+
+    // contact-form
+    // $("#contactSubmit").on("click", function(e) {
+    //     e.preventDefault();
+    //     contactFormSubmit();
+    //     //alert('hi');
+    // });
 
     // Home page - slider
     var owlabt = $('#hmSliderCarousel .owl-carousel');
@@ -271,12 +279,7 @@ $(window).scroll(function() {
 });
 
 
-// contact-form
-$("#contactSubmit").on("click", function(e) {
-    e.preventDefault();
-    contactFormSubmit();
-    //alert('hi');
-});
+
 
 
 
