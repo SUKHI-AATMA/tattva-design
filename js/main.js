@@ -14,14 +14,6 @@
         });
     });
 
-    
-    // contact-form
-    // $("#contactSubmit").on("click", function(e) {
-    //     e.preventDefault();
-    //     contactFormSubmit();
-    //     //alert('hi');
-    //     console.log("thank you click");
-    // });
 
     // Home page - slider
     var owlabt = $('#hmSliderCarousel .owl-carousel');
@@ -65,8 +57,6 @@
         },
     });
 
-    
-   
 
 
     // Hide Header on on scroll down
@@ -117,6 +107,7 @@
 });
 
 
+// page loader
 $(window).on('load',function () {
     $('body').removeClass('loader');
     setTimeout(function () {
@@ -126,6 +117,20 @@ $(window).on('load',function () {
         });
     }, 900);
     
+});
+
+// Home page scorll effects for header
+$(window).scroll(function() {    
+    if ($('.home-pg').length) {
+        var scroll = $(window).scrollTop();
+        //>=, not <=
+       if (scroll == 0) {
+           //clearHeader, not clearheader - caps H
+           $("header").addClass("darkHeader").fadeIn(500);
+       } else{
+           $("header").removeClass("darkHeader").fadeOut(100);
+       }
+    }
 });
 
 
@@ -266,63 +271,7 @@ function team() {
 }
 
 
-
-$(window).scroll(function() {    
-    if ($('.home-pg').length) {
-        var scroll = $(window).scrollTop();
-        //>=, not <=
-       if (scroll == 0) {
-           //clearHeader, not clearheader - caps H
-           $("header").addClass("darkHeader").fadeIn(500);
-       } else{
-           $("header").removeClass("darkHeader").fadeOut(100);
-       }
-    }
-});
-
-
-
-
-
-
-// contact form validation
-function contactFormSubmit() {
-	var varName = $("#name").val(),
-	    varEmail = $("#email").val(),
-	    varPhone = $("#phone").val(),
-	    varMsg = $("#message").val();
-
-	if (!varName) return $("#name").focus().addClass("err").siblings("label").addClass('err-label').html("Your Name* <span>(Fill the name field)</span>"), !1;
-
-	if ($("#name").removeClass("err").siblings("label").removeClass('err-label').html("Your Name"), !varPhone) return $("#phone").focus().addClass("err").siblings("label").addClass('err-label').html("Phone Number* <span>(Fill the phone number field)</span>"), !1;
-
-	if (!validateNumber(varPhone)) return $("#phone").focus().addClass("err").siblings("label").addClass('err-label').html("Phone Number* <span>(Fill valid phone number)</span>"), !1;
-	$("#phone").removeClass("err").siblings("label").removeClass('err-label').html("phone number");
-
-	if ($("#phone").removeClass("err").siblings("label").removeClass('err-label').html("Phone Number"), !varEmail) return $("#email").focus().addClass("err").siblings("label").addClass('err-label').html("Email Address* <span>(Fill the email field)</span>"), !1;
-	
-	if (!validateEmail(varEmail)) return $("#email").focus().addClass("err").siblings("label").addClass('err-label').html("Email Address <span>(Fill valid email address)</span>"), !1;
-    $("#email").removeClass("err").siblings("label").removeClass('err-label').html("Email address");
-    
-
-    if ($("#email").removeClass("err").siblings("label").removeClass('err-label').html("Email Number"), !varMsg) return $("#message").focus().addClass("err").siblings("label").addClass('err-label').html("Message Require* <span>(Fill the message box)</span>"), !1;
-
-    if ($("#message").removeClass("err").siblings("label").removeClass('err-label').html("Message"), !1);
-
-	//alert('thank you');
-}
-
-
-function validateEmail(e) {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(e)
-}
-
-function validateNumber(e) {
-    return /^ *[0-9]+ *$/.test(e)
-}
-
-
-
+// work page masnory filters
 $(window).on('load', function() {
     if ($('.section-workshow').length) {
         masonryEffect();
@@ -342,9 +291,7 @@ $(window).on('load', function() {
     }
 });
 
-
-
-
+// work page masnory effects
 function masonryEffect() {
     if ($('.section-workshow').length) {
         var maxAvailWidth = 0;
