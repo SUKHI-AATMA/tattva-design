@@ -57,6 +57,21 @@
         },
     });
 
+    // work-detail page slider
+    var $carousel = $('.carousel').flickity({
+        contain: true,
+        pageDots: false,
+        freeScroll: true
+    });
+
+    var $carousel = $('.carousel').flickity();
+
+    $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
+        if ( typeof cellIndex == 'number' ) {
+            $carousel.flickity( 'selectCell', cellIndex );
+        }
+    });
+
 
 
     // Hide Header on on scroll down
@@ -106,18 +121,6 @@
 
 });
 
-
-// page loader
-$(window).on('load',function () {
-    $('body').removeClass('loader');
-    setTimeout(function () {
-        //console.log('hi');
-        $('.loader').fadeOut('300', function () {
-            $(this).remove();
-        });
-    }, 900);
-    
-});
 
 // Home page scorll effects for header
 $(window).scroll(function() {    
@@ -189,19 +192,19 @@ function projectDetail() {
 
         setTimeout(function(){
             // work-detail page slider
-            var $carousel = $('.carousel').flickity({
-                contain: true,
-                pageDots: false,
-                freeScroll: true
-            });
+            // var $carousel = $('.carousel').flickity({
+            //     contain: true,
+            //     pageDots: false,
+            //     freeScroll: true
+            // });
 
-            var $carousel = $('.carousel').flickity();
+            // var $carousel = $('.carousel').flickity();
 
-            $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
-                if ( typeof cellIndex == 'number' ) {
-                    $carousel.flickity( 'selectCell', cellIndex );
-                }
-            });
+            // $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
+            //     if ( typeof cellIndex == 'number' ) {
+            //         $carousel.flickity( 'selectCell', cellIndex );
+            //     }
+            // });
         },500);
 
 
@@ -271,7 +274,7 @@ function team() {
 }
 
 
-// work page masnory filters
+// work page masonry filters
 $(window).on('load', function() {
     if ($('.section-workshow').length) {
         masonryEffect();
@@ -291,7 +294,7 @@ $(window).on('load', function() {
     }
 });
 
-// work page masnory effects
+// work page masonry effects
 function masonryEffect() {
     if ($('.section-workshow').length) {
         var maxAvailWidth = 0;
