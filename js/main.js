@@ -10,18 +10,18 @@
         var $form = $(this);
         $.post($form.attr("action"), $form.serialize()).then(function() {
             //alert("Thank you!");
-            console.log("thank you");
+            //console.log("thank you submit");
         });
     });
 
     
     // contact-form
-    $("#contactSubmit").on("click", function(e) {
-        e.preventDefault();
-        contactFormSubmit();
-        //alert('hi');
-        console.log("thank you");
-    });
+    // $("#contactSubmit").on("click", function(e) {
+    //     e.preventDefault();
+    //     contactFormSubmit();
+    //     //alert('hi');
+    //     console.log("thank you click");
+    // });
 
     // Home page - slider
     var owlabt = $('#hmSliderCarousel .owl-carousel');
