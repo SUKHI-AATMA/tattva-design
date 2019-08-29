@@ -29,7 +29,7 @@
             0: {
                 items: 1
             },
-            361: {
+            481: {
                 items: 2
             }
         },
@@ -185,22 +185,25 @@ function projectDetail() {
         $("#projectDetail ul").append(output);
         $("#projectDetail ul").append('</ul>');
 
-        setTimeout(function(){
-            //work-detail page slider
-            var $carousel = $('.carousel').flickity({
-                contain: true,
-                pageDots: false,
-                freeScroll: true
-            });
+        if($(window).width() > 990){
+            setTimeout(function(){
+                //work-detail page slider
+                var $carousel = $('.carousel').flickity({
+                    contain: true,
+                    pageDots: false,
+                    freeScroll: true
+                });
 
-            var $carousel = $('.carousel').flickity();
+                var $carousel = $('.carousel').flickity();
 
-            $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
-                if ( typeof cellIndex == 'number' ) {
-                    $carousel.flickity( 'selectCell', cellIndex );
-                }
-            });
-        },500);
+                $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
+                    if ( typeof cellIndex == 'number' ) {
+                        $carousel.flickity( 'selectCell', cellIndex );
+                    }
+                });
+            },500);
+        }
+        
 
 
     });
@@ -257,7 +260,10 @@ function team() {
                         mouseDrag:true,
                         touchDrag:true,
                     },
-                    1000:{
+                    768:{
+                        items:2
+                    },
+                    1025:{
                         items:3
                     }
                 }
@@ -268,8 +274,6 @@ function team() {
     });
 }
 
-
-// work page masonry filters
 $(window).on('load', function() {
 
     // project json
@@ -278,6 +282,12 @@ $(window).on('load', function() {
     // Team json
     team();
 
+    //checkPosition();
+});
+
+
+// work page masonry filters
+$(window).on('load', function() {
 
     if ($('.section-workshow').length) {
         masonryEffect();
