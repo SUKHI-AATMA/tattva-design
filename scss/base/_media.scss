@@ -2,22 +2,79 @@
 
     h1{
         font-size: 60px;
-    }
-    
+    }    
     h2{
         font-size: 50px;
     }
+
 }
 
 @media screen and (max-width: 1600px) { }
 
 @media screen and (max-width: 1440px) { }
 
-@media screen and (max-width: 1366px) { }
+@media screen and (max-width: 1366px) { 
 
-@media screen and (max-width: 1199px) { }
+    h1{
+        font-size: 50px;
+    }    
+    h2{
+        font-size: 40px;
+    }
+    .inner-wrap{
+        padding: 0 70px;
+    }
+    .section-banner{
+        .img{
+            max-width: 50%;
+            margin: 0 auto;
 
-@media screen and (max-width: 1024px) { }
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .section-abt{
+        .container{
+            .inner-wrap{
+                .col{
+                    padding: 70px 0;
+                }
+            }
+        }
+    }
+
+    .section-slider .container #hmSliderCarousel .owl-carousel .item .content p{
+        font-size: 24px;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 1199px) { 
+
+    .section-abt .container .inner-wrap .col p,
+    .section-social .container .col .inner-box p{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .inner-wrap {
+        padding: 0 50px;
+    }
+    header .logo a img{
+        width: 60px;
+
+        img{
+            width: 100%;
+        }
+    }
+ }
 
 @media screen and (max-width: 990px) { }
 

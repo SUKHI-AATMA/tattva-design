@@ -29,7 +29,7 @@
             0: {
                 items: 1
             },
-            1000: {
+            361: {
                 items: 2
             }
         },
@@ -110,12 +110,7 @@
         lastScrollTop = st;
     }
 
- 
-    // project json
-    projectDetail(); 
 
-    // Team json
-    team();
 
 
 
@@ -191,7 +186,7 @@ function projectDetail() {
         $("#projectDetail ul").append('</ul>');
 
         setTimeout(function(){
-            work-detail page slider
+            //work-detail page slider
             var $carousel = $('.carousel').flickity({
                 contain: true,
                 pageDots: false,
@@ -276,6 +271,14 @@ function team() {
 
 // work page masonry filters
 $(window).on('load', function() {
+
+    // project json
+    projectDetail(); 
+
+    // Team json
+    team();
+
+
     if ($('.section-workshow').length) {
         masonryEffect();
         $(".filter-box").addClass("all");
