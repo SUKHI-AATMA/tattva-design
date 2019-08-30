@@ -27,7 +27,9 @@
         autoplay: false,
         responsive: {
             0: {
-                items: 1
+                items: 1,
+                nav: false,
+                dots: true
             },
             481: {
                 items: 2
@@ -307,6 +309,21 @@ $(window).on('load', function() {
     }
 });
 
+
+$(window).resize(function() {
+    if ($('.section-workshow').length) {
+        clearTimeout(grabWinWidth);
+        grabWinWidth = setTimeout(resizedWin, 100);
+    }
+
+});
+
+function resizedWin() {
+    if ($('.section-workshow').length) {
+        masonryEffect();
+    }
+}
+
 // work page masonry effects
 function masonryEffect() {
     if ($('.section-workshow').length) {
@@ -333,15 +350,15 @@ function masonryEffect() {
                 $(".filter-box").css("max-width", maxAvailWidth + "px");
                 //console.log('1');
             } else if (winWidth <= 1024 && winWidth > 640) {
-                maxAvailWidth = winWidth - 50;
+                maxAvailWidth = winWidth - 0;
                 //maxAvailWidth = 600;
                 maxBoxWidth = maxAvailWidth / 2;
-                //console.log(maxBoxWidth);
+                console.log(maxBoxWidth);
                 $(".filter-box").css("max-width", maxAvailWidth + "px");
                 //console.log('2');
             } else {
-                maxAvailWidth = winWidth - 20;
-                maxBoxWidth = winWidth - 20;
+                maxAvailWidth = winWidth - 0;
+                maxBoxWidth = winWidth - 0;
                 $(".filter-box").css("max-width", maxAvailWidth + "px");
                 //console.log('3');
             }
@@ -384,10 +401,10 @@ function masonryEffect() {
 // https://matthewelsom.com/assets/js/libs/instafeed.min.js
 
 // var userFeed = new Instafeed({
-//     get: 'user',
-//     userId: '8425813739',
-//     clientId: '5dd3f6b936c445d78907d1844c1006cb',
-//     accessToken: '8425813739.5dd3f6b.4d57dbd693ad4a4f9df5e0f9b26d1a36',
+//     get: 'tattvadesign',
+//     userId: '17674892419',
+//     clientId: '7a6f93d225f649a2af63bde6f3731f97',
+//     accessToken: '34fa284930894bf9aed76e1b2d060e0a',
 //     resolution: 'standard_resolution',
 //     template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
 //     sortBy: 'most-recent',

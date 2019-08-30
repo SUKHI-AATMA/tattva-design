@@ -107,7 +107,7 @@ header.home{
 }
 
 header{
-    padding: 20px 0;
+    padding: 15px 0;
     background: $white;
     position: fixed;
     top:0;
@@ -160,7 +160,7 @@ header{
 }
 
 footer{
-    padding: 25px 0px 20px;
+    padding: 20px 0px 25px;
     //background: #ddd;
 
     .left-wrap{
@@ -382,6 +382,44 @@ main.home{
                     right: 25px;
                     background: url('../../images/arrow-next.png') no-repeat center center;
                 }
+                .owl-dots{
+                    text-align: center;
+                    -webkit-tap-highlight-color: transparent;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    bottom: -30px;
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+
+                    .owl-dot{
+        
+                        display: inline-block;
+                        zoom: 1;
+                        &.active{
+                            span{
+                                background:$dark;
+                            }
+                        }
+                        &.hover{
+                            span{
+                                background:$dark;
+                            }
+                        }
+        
+                        span{                                    
+                            width: 10px;
+                            height: 10px;
+                            margin: 5px 7px;
+                            background: $mediumGrey;
+                            display: block;
+                            -webkit-backface-visibility: visible;
+                            transition: opacity .2s ease;
+                            border-radius: 30px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -441,6 +479,10 @@ main.home{
             flex-wrap: wrap;
             width: 50%;
 
+            .link{
+                order: 4;
+            }
+
             .box{
                 position: relative;
                 display: inline-flex;
@@ -448,6 +490,7 @@ main.home{
                 //height: 460px;
                 height: auto;
                 overflow: hidden;
+                
 
                 img{
                     height: 100%;
@@ -657,7 +700,7 @@ main.home{
 //========================= Work Page
 .section-workshow{
     padding-bottom: 50px;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 184px);
 
     .container{
         .workshow-wrap{
@@ -849,7 +892,7 @@ main.home{
 
 //========================= Work-detail Page
 main.work-detail{
-    height: calc(100vh - 180px);
+    height: calc(100vh - 184px);
 }
 .section-work{
     height: 100%;
@@ -980,7 +1023,7 @@ main.work-detail{
 //========================= Contact Page
 .section-contact{
     padding-top: 20px;
-    height: calc(100vh - 180px);
+    height: calc(100vh - 184px);
     .container{
         .inner-wrap{
             height: 100%;
