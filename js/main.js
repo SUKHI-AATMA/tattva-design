@@ -400,15 +400,15 @@ function masonryEffect() {
 // https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js
 // https://matthewelsom.com/assets/js/libs/instafeed.min.js
 
-// var userFeed = new Instafeed({
-//     get: 'tattvadesign',
-//     userId: '17674892419',
-//     clientId: '7a6f93d225f649a2af63bde6f3731f97',
-//     accessToken: '34fa284930894bf9aed76e1b2d060e0a',
-//     resolution: 'standard_resolution',
-//     template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
-//     sortBy: 'most-recent',
-//     limit: 3,
-//     links: false
-//   });
-//   userFeed.run();
+var userFeed = new Instafeed({
+    get: 'tattvadesign',
+    userId: '17674892419',
+    clientId: '7a6f93d225f649a2af63bde6f3731f97',
+    accessToken: '34fa284930894bf9aed76e1b2d060e0a',
+    resolution: 'standard_resolution',
+    template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
+    sortBy: 'most-recent',
+    limit: 3,
+    links: false
+  });
+  userFeed.run();

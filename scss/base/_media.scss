@@ -76,6 +76,9 @@
         }
     }
 
+    .section-workshow .container .workshow-wrap .title-wrap{
+        padding: 0 0 0 70px;
+    }
     .section-abt .container .inner-wrap .col,
     .section-content .container .inner-wrap .col{
         padding: 70px 0;
@@ -205,6 +208,9 @@
     }
 
     // about us page
+    .section-workshow .container .workshow-wrap .title-wrap{
+        padding: 0 0 0 50px;
+    }
     .section-about .container .inner-wrap{
         flex-direction: column;
     }
@@ -376,6 +382,9 @@
     .section-team {
         padding: 50px 0;
     }
+    .section-workshow .container .workshow-wrap .title-wrap{
+        padding: 0 0 0 30px;
+    }
     .section-team .container .inner-wrap .team-wrap{
         width: 90%;
     }
@@ -408,6 +417,12 @@
     }
     .section-contact .container .inner-wrap .flex .contact-block .write-us{
         width: 55%;
+    }
+
+    // work page
+    .section-workshow .container .workshow-wrap .filter-wrap .filter-body .filter-box .item{
+        min-width: 100%;
+        width: 100%
     }
 
     // work detail page
@@ -455,6 +470,9 @@
         margin-bottom: 30px;
     }
 
+    .section-workshow .container .workshow-wrap .title-wrap{
+        padding: 0 0 0 20px;
+    }
 
     // contact page
 
