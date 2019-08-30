@@ -177,6 +177,22 @@
         margin-top: 95px;
     }
 
+    section.thankyou{
+        padding: 0 20px;
+    }
+    section.thankyou .img-box{
+        max-width: 320px;
+    }
+    section.thankyou .col .desc{
+        padding-top: 30%;
+    }
+    section.thankyou .col .desc p{
+        font-size: 16px
+    }
+
+    .section-banner .img{
+        max-width: 70%;
+    }
     .section-slider .container #hmSliderCarousel .owl-carousel .item:hover .content{
         padding: 20px 40px;
     }
@@ -415,6 +431,9 @@
         flex-wrap: wrap;
     }
 
+    .section-banner .img{
+        max-width: 90%;
+    }
     .section-social .container{
         padding-left: 20px;
         padding-right: 20px;
@@ -470,7 +489,11 @@
 
 }
 
-@media screen and (max-width: 360px) { }
+@media screen and (max-width: 360px) { 
+    section.thankyou .img-box{
+        max-width: 250px;
+    }
+}
 
 
 

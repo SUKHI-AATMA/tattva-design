@@ -117,8 +117,13 @@ header{
     transition: top 0.2s ease-in-out;
 
     .logo{
+        width: 100px;
         a{
             display: block;
+
+            img{
+                width: 100%;
+            }
         }
     }
     .menu{
@@ -1173,6 +1178,10 @@ section.thankyou{
     align-items: center;
     flex-direction: column;
 
+    .img-box{
+        max-width: 500px;
+        width:100%;
+    }
     .col{
 
         img{
