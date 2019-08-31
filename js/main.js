@@ -401,7 +401,7 @@ function masonryEffect() {
 // https://matthewelsom.com/assets/js/libs/instafeed.min.js
 
 var userFeed = new Instafeed({
-    get: 'tattvadesign',
+    get: 'user',
     userId: '17674892419',
     clientId: '7a6f93d225f649a2af63bde6f3731f97',
     accessToken: '34fa284930894bf9aed76e1b2d060e0a',
