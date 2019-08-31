@@ -479,13 +479,13 @@ main.home{
             flex-wrap: wrap;
             width: 50%;
 
-            .link{
+            .box.link{
                 order: 4;
             }
 
             .box{
                 position: relative;
-                display: inline-flex;
+                display: flex;
                 width:50%;
                 //height: 460px;
                 height: auto;
@@ -506,7 +506,7 @@ main.home{
                     height: 100%;
 
                     img{
-                        max-width: 70%;
+                        max-width: 300px;
                         width: 100%;
                         height: auto;
                     }

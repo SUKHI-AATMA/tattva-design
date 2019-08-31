@@ -402,9 +402,9 @@ function masonryEffect() {
 
 var userFeed = new Instafeed({
     get: 'user',
-    userId: '17674892419',
+    userId: '1202870229',
     clientId: '7a6f93d225f649a2af63bde6f3731f97',
-    accessToken: '34fa284930894bf9aed76e1b2d060e0a',
+    accessToken: '1202870229.7a6f93d.a7bfcf9cd7c04067b8ea0121113b2ec4',
     resolution: 'standard_resolution',
     template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
     sortBy: 'most-recent',

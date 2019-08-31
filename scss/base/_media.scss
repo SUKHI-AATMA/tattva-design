@@ -94,7 +94,10 @@
     .section-work .container .work-wrap .col .inner-col p{
         font-size: 18px;
     }
-   
+
+    .section-social .container .col .box .pos img{
+        max-width: 220px;
+    }
 
     // work detail page
     
@@ -207,6 +210,10 @@
     .section-team .container .inner-wrap .team-wrap .inner-col .desc h4,
     .section-workshow .container .workshow-wrap .filter-wrap .filter-body .filter-box .item a.link .content p{
         font-size: 20px;
+    }
+
+    .section-social .container .col .box .pos img{
+        max-width: 170px;
     }
 
     // about us page
@@ -450,6 +457,9 @@
     header .menu nav ul li{
         width: 70px;
     }
+    footer .center-wrap ul li a{
+        font-size: 12px;
+    }
     footer .center-wrap ul{
         display: flex;
         justify-content: center;
@@ -462,11 +472,14 @@
     }
     
     .section-social .container{
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
     .section-social .container .col .box{
         width: 100%;
+    }
+    .section-social .container .col .inner-box{
+        padding: 0 20px;
     }
     .section-contact .container .inner-wrap .flex .contact-wrap .form-group{
         margin-bottom: 30px;
