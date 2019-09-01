@@ -366,16 +366,16 @@ function masonryEffect() {
            
             if (width < maxAvailWidth) {
                 if (i > 0) {
-                    width += $(this).prevAll(".item:visible").outerWidth(true);  // - 10;
+                    width += $(this).prevAll(".item:visible").outerWidth(true) - 10;
                 } else {
                     width = 0;
                 }
                 if ((width + $(this).width()) > maxAvailWidth) {
                     width = 0;
                     if (winWidth > 640) {
-                        height += $(this).outerHeight(true);
+                        height += $(this).outerHeight(true) - 5;
                     } else {
-                        height += $(this).prev().outerHeight(true);
+                        height += $(this).prev().outerHeight(true) - 10;
                     }
                     dataRowNum++;
                 }
