@@ -50,9 +50,6 @@
             0: {
                 items: 1
             },
-            600: {
-                items: 1
-            },
             1000: {
                 items: 1
             }
@@ -253,6 +250,7 @@ function team() {
             var owlTeam = $('#team .owl-carousel');
             owlTeam.owlCarousel({
                 //margin:50,
+                dots:false,
                 nav:true,
                 mouseDrag:false,
                 touchDrag:false,
@@ -261,6 +259,8 @@ function team() {
                         items:1,        
                         mouseDrag:true,
                         touchDrag:true,
+                        dots:true,
+                        nav:false,
                     },
                     768:{
                         items:2
