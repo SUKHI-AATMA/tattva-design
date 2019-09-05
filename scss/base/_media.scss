@@ -69,6 +69,11 @@
     .inner-wrap{
         padding: 0 70px;
     }
+
+    header .logo a img{
+        width: 80px;
+    }
+    
     .section-banner{
         .img{
             max-width: 50%;
@@ -112,6 +117,9 @@
     }
     .section-work .container .work-wrap .col .iframe iframe{
         max-width: 800px;
+    }
+    .section-work .container .work-wrap .col .content p{
+        font-size: 16px;
     }
     
 
