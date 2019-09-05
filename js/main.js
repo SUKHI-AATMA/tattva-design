@@ -233,10 +233,10 @@ function team() {
                 output += "<p>" + result.p1 + "</p>";
                 output += "<p>" + result.p2 + "</p>";
                 output += "<ul class='social'>";
-                output += "<li><a href = '" + result.link1 + "'></a></li>"; 
-                output += "<li><a href = '" + result.link2 + "'></a></li>"; 
-                output += "<li><a href = '" + result.link3 + "'></a></li>"; 
-                output += "<li><a href = '" + result.link4 + "'></a></li>"; 
+                output += "<li><a href = '" + result.link1 + "'><img src ='images/icon-facebook.svg' /></a></li>"; 
+                output += "<li><a href = '" + result.link2 + "'><img src ='images/icon-twitter.svg' /></a></li>"; 
+                output += "<li><a href = '" + result.link3 + "'><img src ='images/icon-instagram.svg' /></a></li>"; 
+                output += "<li><a href = '" + result.link4 + "'><img src ='images/icon-linkedin.svg' /></a></li>"; 
                 output += "</ul>";
                 output += "</div>";
                 output += "</div>";

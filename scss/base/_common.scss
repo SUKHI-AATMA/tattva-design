@@ -664,15 +664,30 @@ main.home{
                             li{
                                 display: inline-block;
                                 margin-right: 10px;
+                                width: 27px;
+                                height: 27px;
+                                background: $mediumGrey;
+                                @include border-radius(50%);
+                                @include transition(.3s ease-in-out);
+
                                 &:last-child{
                                     margin-right: 0;
                                 }
+
+                                &:hover{
+                                    @include transition(.3s ease-in-out);
+                                    background-color:#fff; 
+                                }
+                                
                                 a{
-                                    display: block;
-                                    width: 27px;
-                                    height: 27px;
-                                    background: $mediumGrey;
-                                    @include border-radius(50%);
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    height: 100%;
+
+                                    img{
+                                        width: 14px;
+                                    }
                                 }
                             }
                         }
