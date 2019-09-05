@@ -222,25 +222,30 @@ function team() {
         var output = "";     
 
         results.forEach(function (result) { 
-            output += "<div class='item'>";
-            output += "<div class='inner-col'>";
-            output += "<div class='img'><img src = '" + result.img + "'/></div>";
-            output += "<div class='desc'>";
-            output += "<h4>" + result.name + "</h4>";
-            output += "<span>" + result.designation + "</span>";
-            output += "<p>" + result.p1 + "</p>";
-            output += "<p>" + result.p2 + "</p>";
-            output += "<ul class='social'>";
-            output += "<li><a href = '" + result.link1 + "'></a></li>"; 
-            output += "<li><a href = '" + result.link2 + "'></a></li>"; 
-            output += "<li><a href = '" + result.link3 + "'></a></li>"; 
-            output += "<li><a href = '" + result.link4 + "'></a></li>"; 
-            output += "</ul>";
-            output += "</div>";
-            output += "</div>";
-            output += "</div>"; 
+
+            if (result.img !== '' || result.name !== '' || result.designation !== '' || result.p1 !== '' || result.p2 !== '' || result.link1 !== '' || result.link2 !== '' || result.link3 !== '' || result.link4 !== '') {
+                output += "<div class='item'>";
+                output += "<div class='inner-col'>";
+                output += "<div class='img'><img src = '" + result.img + "'/></div>";
+                output += "<div class='desc'>";
+                output += "<h4>" + result.name + "</h4>";
+                output += "<span>" + result.designation + "</span>";
+                output += "<p>" + result.p1 + "</p>";
+                output += "<p>" + result.p2 + "</p>";
+                output += "<ul class='social'>";
+                output += "<li><a href = '" + result.link1 + "'></a></li>"; 
+                output += "<li><a href = '" + result.link2 + "'></a></li>"; 
+                output += "<li><a href = '" + result.link3 + "'></a></li>"; 
+                output += "<li><a href = '" + result.link4 + "'></a></li>"; 
+                output += "</ul>";
+                output += "</div>";
+                output += "</div>";
+                output += "</div>"; 
+                
+            }
             
         });
+        
         $("#team div").append(output);
         $("#team div").append('</div>');
 
