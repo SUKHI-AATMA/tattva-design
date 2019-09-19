@@ -1,23 +1,46 @@
  $(document).ready(function() {
 
+    // Use the CDN or host the script yourself
+    // https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js
+    // https://matthewelsom.com/assets/js/libs/instafeed.min.js
+
+    if($('.section-social').length){
+        var userFeed = new Instafeed({
+            get: 'user',
+            userId: '1202870229',
+            clientId: '7a6f93d225f649a2af63bde6f3731f97',
+            accessToken: '1202870229.7a6f93d.a7bfcf9cd7c04067b8ea0121113b2ec4',
+            resolution: 'standard_resolution',
+            template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
+            sortBy: 'most-recent',
+            limit: 3,
+            links: false
+        });
+        userFeed.run();
+    }
+
+
+
     $('.scroll-arrow').click (function() {
         $('html, body').animate({scrollTop: $('.section-abt').offset().top} , 1200);
         return false;
-      });
-
-    $("#contact").submit(function(e) {
-        e.preventDefault();
-        var $form = $(this);
-        $.post($form.attr("action"), $form.serialize()).then(function() {
-            //alert("Thank you!");
-            //console.log("thank you submit");
-        });
     });
+
+    if($('.section-contact').length){
+        $("#contact").submit(function(e) {
+            e.preventDefault();
+            var $form = $(this);
+            $.post($form.attr("action"), $form.serialize()).then(function() {
+                //alert("Thank you!");
+                //console.log("thank you submit");
+            });
+        });
+    }
 
 
     // Home page - slider
-    var owlabt = $('#hmSliderCarousel .owl-carousel');
-    owlabt.owlCarousel({
+    var owlHome = $('#hmSliderCarousel .owl-carousel');
+    owlHome.owlCarousel({
         loop: true,
         nav: true,
         dots: false,
@@ -38,8 +61,8 @@
     });
 
     // about page - about us
-    var owlabt = $('#abtCarousel .owl-carousel');
-    owlabt.owlCarousel({
+    var owlAbout = $('#abtCarousel .owl-carousel');
+    owlAbout.owlCarousel({
         loop: true,
         nav: false,
         smartSpeed: 500,
@@ -56,21 +79,30 @@
         },
     });
 
-    // work-detail page slider
-    // var $carousel = $('.carousel').flickity({
-    //     contain: true,
-    //     pageDots: false,
-    //     freeScroll: true
-    // });
-
-    // var $carousel = $('.carousel').flickity();
-
-    // $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
-    //     if ( typeof cellIndex == 'number' ) {
-    //         $carousel.flickity( 'selectCell', cellIndex );
-    //     }
-    // });
-
+    // about page - Team
+    var owlTeam = $('#team .owl-carousel');
+    owlTeam.owlCarousel({
+        //margin:50,
+        dots:false,
+        nav:true,
+        mouseDrag:false,
+        touchDrag:false,
+        responsive:{
+            0:{
+                items:1,        
+                mouseDrag:true,
+                touchDrag:true,
+                dots:true,
+                nav:false,
+            },
+            768:{
+                items:2
+            },
+            1025:{
+                items:3
+            }
+        }
+    });
 
 
     // Hide Header on on scroll down
@@ -111,8 +143,6 @@
 
 
 
-
-
 });
 
 
@@ -121,66 +151,135 @@ $(window).scroll(function() {
     if ($('.home-pg').length) {
         var scroll = $(window).scrollTop();
         //>=, not <=
-       if (scroll == 0) {
+        if (scroll == 0) {
            //clearHeader, not clearheader - caps H
-           $("header").addClass("darkHeader").fadeIn(500);
-       } else{
-           $("header").removeClass("darkHeader").fadeOut(100);
-       }
+            $("header").addClass("darkHeader").fadeIn(500);
+        } else{
+            $("header").removeClass("darkHeader").fadeOut(100);
+        }
     }
 });
 
 
+
+// Project Listing JSON Function
+function projectListing() {
+    var projectURL = "https://api.sheetson.com/v1/sheets/TattvaProjects?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+    
+    $.getJSON(projectURL, function(data) {
+        var results = data.results;
+
+        // $("#projectListing").html('<div class="filter-box">');
+        var output = ""; 
+
+        results.forEach(function (result) { 
+            // console.log(result);
+            if(result.status == 'show')
+            {
+                output += `<div class="item" data-category="`+result.category+`" data-row="`+result.rowIndex+`">
+                <a class="link" data-id="`+result.id+`" href="work-detail.html?title=`+result.title.replace(/\s+/g, '-')+`&id=`+result.id+`&rowIndex=`+result.rowIndex+`">
+                <div class="desc">
+                <img src="`+result.img+`" alt="">
+                </div>
+                <div class="content" style="`+result.styles+`">
+                <h2>`+result.title+`</h2>
+                <div class="hide">
+                <p>`+result.desc+`</p>
+                </div>
+                </div>
+                </a>
+                </div>`;
+            }
+            
+                                
+        });
+            
+
+        $("#projectListing").append(output);
+        // $("#projectListing").append('</div>');
+
+    }).done(function() {
+        if ($('.section-workshow').length) {
+
+            setTimeout(function(){
+                masonryEffect();
+            },500);
+            
+            $(".filter-box").addClass("all");
+            $(".filter-nav li").click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+                if ($(this).attr("data-filter") != "all") {
+                    $(".filter-box").removeClass("all");                
+                    $(".item." + $(this).attr("data-filter")).show().siblings(":not(.item." + $(this).attr('data-filter') + ")").hide();
+                    $(":not(.item." + $(this).attr('data-filter') + ")").css({ "left": "" });
+                    //console.log("click");
+                } else {
+                    $(".filter-box").addClass("all");
+                    $(".item").show();
+                }
+                masonryEffect();
+            });
+        }
+    });
+}
+
+function getParameterByName( name ){
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( window.location.href );
+    if( results == null ){
+        return "";
+    }
+    else {
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+}
+
+
 // Project Detail (Artboard) JSON Function
 function projectDetail() {
-    var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+    var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard/"+parseInt(getParameterByName('rowIndex'))+"?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+    // console.log(artboardURL);
+    
     $.getJSON(artboardURL, function(data) {
 
-        console.log(data);
+        //console.log(data);
 
         var results = data.results;
 
         $("#projectDetail").html('<ul class="work-wrap scroll carousel">');
         var output = "";     
+        console.log(data);
+        // data.forEach(function (result) { 
+        //  console.log('resultgghh',data);
+            
+            var keyList = [
+                undefined,
+                'rowIndex',
+                'id',
+                'title',
+            ]
 
-        results.forEach(function (result) { 
-            output += "<li class='col'>";
-            output +="<div class='inner-col'>";
-            output +="<h2>" + result.title + "</h2>";
-            output += "<p>" + result.desc + "</p>";
-            output+="</div>";
-            output += "</li>";  
-            output += "<li class='col'><img src = '" + result.p1 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p2 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p3 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p4 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p5 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p6 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p7 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p8 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p9 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p10 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p11 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p12 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p13 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p14 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p15 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p16 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p17 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p18 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p19 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p20 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p21 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p22 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p23 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p24 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p25 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p26 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p27 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p28 + "'/></li>";
-            output += "<li class='col'><img src = '" + result.p29 + "'/></li>";                    
+            for (var key in data) {
+                if(!keyList.includes(key) ){
+                    //console.log(key);
+                    var value = data[key];
+                    var contVal = '', eleVal = '', styleArr, innerStyles='';
+                    // console.log(value.indexOf('@#$'));
+                    value.indexOf('@#$') > -1 ?
+                    (   
+                        contVal = value.split('@#$'),
+                        eleVal = contVal[0],
+                        innerStyles = contVal[1]
+                    ) : eleVal = value;
+                    // console.log(contVal[0]);
+                    output += "<li class='col' style='"+innerStyles+"'>" + eleVal + "</li>";
 
-        });
+                }
+            }                   
+        // });
+
         $("#projectDetail ul").append(output);
         $("#projectDetail ul").append('</ul>');
 
@@ -202,117 +301,29 @@ function projectDetail() {
                 });
             },500);
         }
-        
-
-
     });
+
 }
 
 
-// Team JSON Function
-function team() {
-    var teamURL = "https://api.sheetson.com/v1/sheets/tattvaTeam?spreadsheetId=1mPC7qLKZqR_Zgz-8G4z8LiEMw43gyk5YjcbNQWsaZFQ"
-    $.getJSON(teamURL, function(data) {
-
-        console.log(data);
-
-        var results = data.results;
-
-        $("#team").html('<div class="owl-carousel owl-theme">');
-        var output = "";     
-
-        results.forEach(function (result) { 
-
-            if (result.img !== '' || result.name !== '' || result.designation !== '' || result.p1 !== '' || result.p2 !== '' || result.link1 !== '' || result.link2 !== '' || result.link3 !== '' || result.link4 !== '') {
-                output += "<div class='item'>";
-                output += "<div class='inner-col'>";
-                output += "<div class='img'><img src = '" + result.img + "'/></div>";
-                output += "<div class='desc'>";
-                output += "<h4>" + result.name + "</h4>";
-                output += "<span>" + result.designation + "</span>";
-                output += "<p>" + result.p1 + "</p>";
-                output += "<p>" + result.p2 + "</p>";
-                output += "<ul class='social'>";
-                output += "<li><a href = '" + result.link1 + "'><img src ='images/icon-facebook.svg' /></a></li>"; 
-                output += "<li><a href = '" + result.link2 + "'><img src ='images/icon-twitter.svg' /></a></li>"; 
-                output += "<li><a href = '" + result.link3 + "'><img src ='images/icon-instagram.svg' /></a></li>"; 
-                output += "<li><a href = '" + result.link4 + "'><img src ='images/icon-linkedin.svg' /></a></li>"; 
-                output += "</ul>";
-                output += "</div>";
-                output += "</div>";
-                output += "</div>"; 
-                
-            }
-            
-        });
-        
-        $("#team div").append(output);
-        $("#team div").append('</div>');
-
-        
-        setTimeout(function(){
-            // about page - Team
-            var owlTeam = $('#team .owl-carousel');
-            owlTeam.owlCarousel({
-                //margin:50,
-                dots:false,
-                nav:true,
-                mouseDrag:false,
-                touchDrag:false,
-                responsive:{
-                    0:{
-                        items:1,        
-                        mouseDrag:true,
-                        touchDrag:true,
-                        dots:true,
-                        nav:false,
-                    },
-                    768:{
-                        items:2
-                    },
-                    1025:{
-                        items:3
-                    }
-                }
-            });
-        },500);
-
-
-    });
-}
 
 $(window).on('load', function() {
 
-    // project json
-    projectDetail(); 
+    // Project Detail page
+    if($("#projectDetail").length){
+        projectDetail();
+    }
 
-    // Team json
-    team();
+    // Project Listing page
+    if($("#projectListing").length){
+        projectListing();
+    } 
 
-    //checkPosition();
 });
 
 
 // work page masonry filters
-$(window).on('load', function() {
-
-    if ($('.section-workshow').length) {
-        masonryEffect();
-        $(".filter-box").addClass("all");
-        $(".filter-nav li").click(function() {
-            $(this).addClass('active').siblings().removeClass('active');
-            if ($(this).attr("data-filter") != "all") {
-                $(".filter-box").removeClass("all");                
-                $(".item." + $(this).attr("data-filter")).show().siblings(":not(.item." + $(this).attr('data-filter') + ")").hide();
-                $(":not(.item." + $(this).attr('data-filter') + ")").css({ "left": "" });
-            } else {
-                $(".filter-box").addClass("all");
-                $(".item").show();
-            }
-            masonryEffect();
-        });
-    }
-});
+$(window).on('load', function() {});
 
 
 $(window).resize(function() {
@@ -368,7 +379,7 @@ function masonryEffect() {
                 //console.log('3');
             }
             
-           
+
             if (width < maxAvailWidth) {
                 if (i > 0) {
                     width += $(this).prevAll(".item:visible").outerWidth(true) - 10;
@@ -401,19 +412,3 @@ function masonryEffect() {
 }
 
 
-// Use the CDN or host the script yourself
-// https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js
-// https://matthewelsom.com/assets/js/libs/instafeed.min.js
-
-var userFeed = new Instafeed({
-    get: 'user',
-    userId: '1202870229',
-    clientId: '7a6f93d225f649a2af63bde6f3731f97',
-    accessToken: '1202870229.7a6f93d.a7bfcf9cd7c04067b8ea0121113b2ec4',
-    resolution: 'standard_resolution',
-    template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
-    sortBy: 'most-recent',
-    limit: 3,
-    links: false
-  });
-  userFeed.run();

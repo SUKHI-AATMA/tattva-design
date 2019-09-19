@@ -663,7 +663,7 @@ main.home{
                         ul.social{
                             li{
                                 display: inline-block;
-                                margin-right: 10px;
+                                margin-right: 15px;
                                 width: 27px;
                                 height: 27px;
                                 background: $mediumGrey;
@@ -678,7 +678,7 @@ main.home{
                                     @include transition(.3s ease-in-out);
                                     background-color:#fff; 
                                 }
-                                
+
                                 a{
                                     display: flex;
                                     justify-content: center;
@@ -692,7 +692,9 @@ main.home{
                             }
                         }
                     }
+
                 }
+                
                 .owl-carousel {
                     .owl-next,
                     .owl-prev{
@@ -1012,14 +1014,18 @@ main.work-detail{
                         line-height: 1.2;
                         margin-bottom: 20px;
                     }
+                    span.catg{
+                        font-weight: bold;
+                    }
                 }
+
                 .content{
                     display: flex;
                     flex-direction: column;
                     padding: 70px 50px;
                     width: 600px;
                     height: 100%;
-                    background-color: #ffc50a;
+                    //background-color: #ffc50a;
                     
                     h3{
                         font-size: 24px;
