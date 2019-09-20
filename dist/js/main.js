@@ -348,8 +348,8 @@ function projectDetail() {
         $("#projectDetail ul").append('</ul>');
 
         if($(window).width() > 990){
-            $(window).on('load',function(){
                 alert(123);
+            $(window).on('load',function(){
                 //work-detail page slider
                 var $carousel = $('.carousel').flickity({
                     contain: true,
