@@ -319,7 +319,7 @@
                  //     projectDetail(getParameterByName('rowIndex'));
                  //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
                  // });
-             }, 500);
+             }, 1000);
          }
      });
 
