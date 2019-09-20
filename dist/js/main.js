@@ -176,8 +176,8 @@ function projectListing() {
             // console.log(result);
             if(result.status == 'show')
             {
-                output += `<div class="item" data-category="`+result.category+`" data-row="`+result.rowIndex+`">
-                <a class="link" data-id="`+result.id+`" href="work-detail.html?title=`+result.title.replace(/\s+/g, '-')+`&id=`+result.id+`&rowIndex=`+result.rowIndex+`">
+                output += `<div class="item" data-category="`+result.category+`">
+                <a class="link" data-id="`+result.id+`" data-rowIndex="`+result.rowIndex+`" href="work-detail?`+result.title.replace(/\s+/g, '-')+`&rowIndex=`+result.rowIndex+`">
                 <div class="desc">
                 <img src="`+result.img+`" alt="">
                 </div>
@@ -190,8 +190,11 @@ function projectListing() {
                 </a>
                 </div>`;
             }
-            
-                                
+            // $('a.link').on('click',function(){
+            //     projectDetail(getParameterByName('rowIndex'));
+            //     // rowIndex
+            //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
+            // });
         });
             
 
@@ -203,6 +206,9 @@ function projectListing() {
 
             setTimeout(function(){
                 masonryEffect();
+                $('.loading').fadeOut(500,'',function(){
+                    $('.loading').remove();
+                }); 
             },500);
             
             $(".filter-box").addClass("all");
@@ -238,8 +244,8 @@ function getParameterByName( name ){
 
 
 // Project Detail (Artboard) JSON Function
-function projectDetail() {
-    var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard/"+parseInt(getParameterByName('rowIndex'))+"?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+function projectDetail(rowIndex) {
+    var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard/"+parseInt(rowIndex)+"?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
     // console.log(artboardURL);
     
     $.getJSON(artboardURL, function(data) {
@@ -259,6 +265,9 @@ function projectDetail() {
                 'rowIndex',
                 'id',
                 'title',
+                'metaTitle',
+                'metaDescription',
+                'metaImage',
             ]
 
             for (var key in data) {
@@ -267,7 +276,7 @@ function projectDetail() {
                     var value = data[key];
                     var contVal = '', eleVal = '', styleArr, innerStyles='';
                     // console.log(value.indexOf('@#$'));
-                    console.log(value.indexOf('@#$'));
+                    // console.log(value.indexOf('@#$'));
                     value.indexOf('@#$') > -1 ?
                     (   
                         contVal = value.split('@#$'),
@@ -300,20 +309,35 @@ function projectDetail() {
                         $carousel.flickity( 'selectCell', cellIndex );
                     }
                 });
+                $('.loading').fadeOut(300,'',function(){
+                    $('.loading').remove();
+                });
+                // $('a.nextProject').on('click',function(){
+                //     projectDetail(getParameterByName('rowIndex'));
+                //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
+                // });
             },500);
         }
     });
 
 }
-
+$(document).ready(function(){
+    var href = location.href.split("/").slice(-1);
+    var href1 = href[0].split('?');
+    
+    if(href1[0] == 'work-detail')
+    {
+        projectDetail(getParameterByName('rowIndex'));
+    }
+});
 
 
 $(window).on('load', function() {
-
+    
     // Project Detail page
-    if($("#projectDetail").length){
-        projectDetail();
-    }
+    // if($("#projectDetail").length){
+    //     projectDetail();
+    // }
 
     // Project Listing page
     if($("#projectListing").length){
