@@ -201,7 +201,8 @@
          // $("#projectListing").append('</div>');
 
      }).done(function() {
-         document.onreadystatechange = function() {
+         // console.log(123);
+         // document.onreadystatechange = function() {
              if (document.readyState === 'complete') {
                  setTimeout(function() {
                      masonryEffect();
@@ -225,7 +226,7 @@
                      masonryEffect();
                  });
              }
-         }
+         // }
 
      });
  }
