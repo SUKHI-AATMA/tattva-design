@@ -176,8 +176,8 @@ function projectListing() {
             // console.log(result);
             if(result.status == 'show')
             {
-                output += `<div class="item" data-category="`+result.category+`" data-row="`+result.rowIndex+`">
-                <a class="link" data-id="`+result.id+`" href="work-detail.html?title=`+result.title.replace(/\s+/g, '-')+`&id=`+result.id+`&rowIndex=`+result.rowIndex+`">
+                output += `<div class="item" data-category="`+result.category+`" data-rowIndex="`+result.rowIndex+`">
+                <a class="link" data-id="`+result.id+`" href="work-detail?`+result.title.replace(/\s+/g, '-')+`">
                 <div class="desc">
                 <img src="`+result.img+`" alt="">
                 </div>
@@ -196,6 +196,19 @@ function projectListing() {
             
 
         $("#projectListing").append(output);
+        $('a.link').on('click',function(e){
+            // e.preventDefault();
+            // alert(1);
+            var rIndex = $(this).parents('.item').attr('data-rowIndex');
+            if(localStorage.getItem('prodId') != '' || localStorage.getItem('prodId') != null)
+            {
+                localStorage.setItem('prodId', rIndex);
+            }
+            else
+            {
+                localStorage.setItem('prodId', rIndex);
+            }
+        });
         // $("#projectListing").append('</div>');
 
     }).done(function() {
@@ -203,6 +216,7 @@ function projectListing() {
 
             setTimeout(function(){
                 masonryEffect();
+                $('.loading').fadeOut(300,'',function(){$('.loading').remove()});
             },500);
             
             $(".filter-box").addClass("all");
@@ -218,10 +232,12 @@ function projectListing() {
                     $(".item").show();
                 }
                 masonryEffect();
+
             });
         }
     });
 }
+
 
 function getParameterByName( name ){
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -239,7 +255,7 @@ function getParameterByName( name ){
 
 // Project Detail (Artboard) JSON Function
 function projectDetail() {
-    var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard/"+parseInt(getParameterByName('rowIndex'))+"?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+    var artboardURL = "https://api.sheetson.com/v1/sheets/TattvaArtboard/"+parseInt(localStorage.getItem('prodId'))+"?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
     // console.log(artboardURL);
     
     $.getJSON(artboardURL, function(data) {
@@ -257,10 +273,58 @@ function projectDetail() {
             var keyList = [
                 undefined,
                 'rowIndex',
+                'metaTitle',
+                'metaDescription',
+                'metaImage',
                 'id',
                 'title',
-            ]
+            ], meta;
+            (data['metaTitle'] !== '' && data['metaDescription'] !== '' && data['metaImage'] !== '')?
+            (
+                meta = `
+                <!-- Primary Meta Tags -->
+                <title>Tattva Design</title>
+                <meta name="title" content="`+data.metaTitle+`">
+                <meta name="description" content="`+data.metaDescription+`">
 
+                <!-- Open Graph / Facebook -->
+                <meta property="og:type" content="website">
+                <meta property="og:url" content="`+window.location.href+`">
+                <meta property="og:title" content="`+data.metaTitle+`">
+                <meta property="og:description" content="`+data.metaDescription+`">
+                <meta property="og:image" content="`+data.metaImage+`">
+
+                <!-- Twitter -->
+                <meta property="twitter:card" content="summary_large_image">
+                <meta property="twitter:url" content="`+window.location.href+`">
+                <meta property="twitter:title" content="`+data.metaTitle+`">
+                <meta property="twitter:description" content="`+data.metaDescription+`">
+                <meta property="twitter:image" content="`+data.metaImage+`">
+                `
+            ): 
+            (
+                meta = `
+                <!-- Primary Meta Tags -->
+                <title>Tattva Design</title>
+                <meta name="title" content="`+data.metaTitle+`">
+                <meta name="description" content="`+data.metaDescription+`">
+
+                <!-- Open Graph / Facebook -->
+                <meta property="og:type" content="website">
+                <meta property="og:url" content="`+window.location.href+`">
+                <meta property="og:title" content="`+data.metaTitle+`">
+                <meta property="og:description" content="`+data.metaDescription+`">
+                <meta property="og:image" content="`+data.metaImage+`">
+
+                <!-- Twitter -->
+                <meta property="twitter:card" content="summary_large_image">
+                <meta property="twitter:url" content="`+window.location.href+`">
+                <meta property="twitter:title" content="`+data.metaTitle+`">
+                <meta property="twitter:description" content="`+data.metaDescription+`">
+                <meta property="twitter:image" content="`+data.metaImage+`">
+                `
+            );
+            $('head').append(meta)
             for (var key in data) {
                 if(!keyList.includes(key) ){
                     //console.log(key);
@@ -301,6 +365,12 @@ function projectDetail() {
                 });
             },500);
         }
+        setTimeout(function(){
+            $('.loading').fadeOut(300,'',function(){$('.loading').remove()});
+            $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
+
+        },500);
+
     });
 
 }
@@ -371,6 +441,7 @@ function masonryEffect() {
                 maxBoxWidth = maxAvailWidth / 2;
                 console.log(maxBoxWidth);
                 $(".filter-box").css("max-width", maxAvailWidth + "px");
+                $('.loading').fadeOut(300,'',function(){$('.loading').remove()})
                 //console.log('2');
             } else {
                 maxAvailWidth = winWidth - 0;
