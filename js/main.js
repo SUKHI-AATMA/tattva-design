@@ -319,6 +319,9 @@
                  //     projectDetail(getParameterByName('rowIndex'));
                  //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
                  // });
+                 setTimeout(function(){
+                    $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
+                 },500);
              }, 1000);
          }
      });
