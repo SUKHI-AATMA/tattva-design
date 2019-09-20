@@ -348,7 +348,7 @@ function projectDetail() {
         $("#projectDetail ul").append('</ul>');
 
         if($(window).width() > 990){
-            setTimeout(function(){
+            $(window).on('load',function(){
                 //work-detail page slider
                 var $carousel = $('.carousel').flickity({
                     contain: true,
@@ -363,13 +363,31 @@ function projectDetail() {
                         $carousel.flickity( 'selectCell', cellIndex );
                     }
                 });
-            },500);
-        }
-        setTimeout(function(){
-            $('.loading').fadeOut(300,'',function(){$('.loading').remove()});
-            $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
+                setTimeout(function(){
+                    $('.loading').fadeOut(300,'',function(){$('.loading').remove()});
+                    $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
 
-        },500);
+                },500);
+            });
+            
+            // setTimeout(function(){
+            //     //work-detail page slider
+            //     var $carousel = $('.carousel').flickity({
+            //         contain: true,
+            //         pageDots: false,
+            //         freeScroll: true
+            //     });
+
+            //     var $carousel = $('.carousel').flickity();
+
+            //     $carousel.on( 'staticClick.flickity ', function( event, pointer, cellElement, cellIndex ) {
+            //         if ( typeof cellIndex == 'number' ) {
+            //             $carousel.flickity( 'selectCell', cellIndex );
+            //         }
+            //     });
+            // },500);
+        }
+        
 
     });
 
