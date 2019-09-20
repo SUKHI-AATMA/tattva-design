@@ -349,6 +349,7 @@ function projectDetail() {
 
         if($(window).width() > 990){
             $(window).on('load',function(){
+                alert(123);
                 //work-detail page slider
                 var $carousel = $('.carousel').flickity({
                     contain: true,
