@@ -349,7 +349,7 @@ function projectDetail() {
 
         if($(window).width() > 990){
                 alert(123);
-            $(window).on('load',function(){
+            
                 //work-detail page slider
                 var $carousel = $('.carousel').flickity({
                     contain: true,
@@ -369,7 +369,6 @@ function projectDetail() {
                     $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
 
                 },500);
-            });
             
             // setTimeout(function(){
             //     //work-detail page slider
