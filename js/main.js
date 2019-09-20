@@ -267,6 +267,7 @@ function projectDetail() {
                     var value = data[key];
                     var contVal = '', eleVal = '', styleArr, innerStyles='';
                     // console.log(value.indexOf('@#$'));
+                    console.log(value.indexOf('@#$'));
                     value.indexOf('@#$') > -1 ?
                     (   
                         contVal = value.split('@#$'),
