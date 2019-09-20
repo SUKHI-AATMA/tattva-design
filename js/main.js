@@ -320,7 +320,7 @@
                  //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
                  // });
                  setTimeout(function(){
-                    $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
+                    $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script><style>.addthis_inline_share_toolbox {transform: translate(3px, -100%);</style>');
                  },500);
              }, 1000);
          }

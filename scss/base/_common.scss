@@ -1332,3 +1332,20 @@ section.thankyou{
 
 }
 
+//========================= Share plugin work details page.
+.share {
+    float: left;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 3px;
+    color: #fff;
+}
+
+.share p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0 0 5px;
+    /* text-transform: uppercase; */
+}
