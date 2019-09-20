@@ -209,7 +209,7 @@
                      $('.loading').fadeOut(500, '', function() {
                          $('.loading').remove();
                      });
-                 }, 500);
+                 }, 1000);
 
                  $(".filter-box").addClass("all");
                  $(".filter-nav li").click(function() {
