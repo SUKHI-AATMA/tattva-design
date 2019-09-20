@@ -203,7 +203,7 @@
      }).done(function() {
          // console.log(123);
          // document.onreadystatechange = function() {
-             if (document.readyState === 'complete') {
+             // if (document.readyState === 'complete') {
                  setTimeout(function() {
                      masonryEffect();
                      $('.loading').fadeOut(500, '', function() {
@@ -225,7 +225,7 @@
                      }
                      masonryEffect();
                  });
-             }
+             // }
          // }
 
      });
