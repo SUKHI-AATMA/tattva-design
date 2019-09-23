@@ -257,7 +257,7 @@ function projectDetail(rowIndex) {
 
         $("#projectDetail").html('<ul class="work-wrap scroll carousel">');
         var output = "";
-        console.log(data);
+        //console.log(data);
         // data.forEach(function (result) { 
         //  console.log('resultgghh',data);
 
@@ -341,22 +341,25 @@ function projectDetail(rowIndex) {
         $("#projectDetail ul").append(output);
         $("#projectDetail ul").append('</ul>');
 
-        if ($(window).width() > 990) {
+        //if ($(window).width() > 990) {
             setTimeout(function() {
-                //work-detail page slider
-                var $carousel = $('.carousel').flickity({
-                    contain: true,
-                    pageDots: false,
-                    freeScroll: true
-                });
+                
+                if ($(window).width() > 990) {
+                    //work-detail page slider
+                    var $carousel = $('.carousel').flickity({
+                        contain: true,
+                        pageDots: false,
+                        freeScroll: true
+                    });
 
-                var $carousel = $('.carousel').flickity();
+                    var $carousel = $('.carousel').flickity();
 
-                $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
-                    if (typeof cellIndex == 'number') {
-                        $carousel.flickity('selectCell', cellIndex);
-                    }
-                });
+                    $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
+                        if (typeof cellIndex == 'number') {
+                            $carousel.flickity('selectCell', cellIndex);
+                        }
+                    });
+                }
                 $('.loading').fadeOut(300, '', function() {
                     $('.loading').remove();
                 });
@@ -366,9 +369,9 @@ function projectDetail(rowIndex) {
                 // });
                 setTimeout(function() {
                     $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
-                }, 500);
+                }, 900);
             }, 1000);
-        }
+        //}
     });
 
 }

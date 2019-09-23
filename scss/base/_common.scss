@@ -983,6 +983,7 @@ main.work-detail{
                 display: inline-block;
                 height: 100%;
                 cursor: pointer;
+                margin-right: 1px;
 
                 &:first-child{
                     width: 50vw;
@@ -1063,15 +1064,63 @@ main.work-detail{
                         height: 100%;
                     }
                 }
+                .share{
+                    bottom: 30px;
+                    left: 50px;
+                    
+                    p{
+                        font-size: 24px;
+                        font-weight: 500;
+                    }
+                    .at-style-responsive .at-share-btn{
+                        padding: 10px;
+                    }
+                }
+
+                &::hover{
+                    .nextproject{
+                        span.arrow{
+
+                        }
+                    }
+                }
             }
             .video-wrap{
                 width: 775px; 
-                 video{
-                     width: 100%;
-                     height: 100%;
-                 }
-             }
-             
+                video{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+            
+            .nextproject{
+                display: inline-block;
+                width: auto;
+                background: #353535;
+
+                p.next-head{
+                    color:#fff;
+                    font-weight:bold;
+                    font-size: 60px !important;
+                    line-height: 1;
+
+                    span{
+                        display: block;
+                        position: relative;
+
+                        span.arrow{
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            margin-top: -32px;
+                            -webkit-animation: rightleft .7s infinite  alternate;
+                            animation: rightleft .7s infinite  alternate;
+                        }
+                    }
+                }   
+            }
+
             .flickity-prev-next-button{
                 width: 44px;
                 height: 34px;

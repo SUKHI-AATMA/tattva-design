@@ -164,6 +164,9 @@
     .section-work .container .work-wrap .col .inner-col p{
         margin-bottom:10px;
     }
+    .section-work .container .work-wrap .col .content.nextproject{
+        padding: 50px;
+    }
     .section-work .container .work-wrap .col .content{
         padding: 30px 30px;
     }
@@ -338,6 +341,7 @@
         float: unset;
         width: 500px;
         margin: 0 auto;
+        margin-bottom: 1px;
     }
     .section-work .container .work-wrap .col img{
         width: 100%;
@@ -351,7 +355,22 @@
         height: 350px;
     }
     .section-work .container .work-wrap .col:last-child{
+        position: relative;
         padding-right: 0;
+    }
+    .section-work .container .work-wrap .col{}
+    .section-work .container .work-wrap .col .content.nextproject{
+        height: 375px;
+    }
+    .section-work .container .work-wrap .nextproject p.next-head{
+        font-size: 40px!important;
+    }
+    .section-work .container .work-wrap .nextproject p.next-head span span.arrow{
+        left: 140px;
+        margin-top: -18px;
+    }
+    .section-work .container .work-wrap .nextproject p.next-head span span.arrow img{
+        width: 36px
     }
 
  }
@@ -573,6 +592,31 @@
     }
     .section-work .container .work-wrap .col .inner-col{
         padding: 0 0 0 20px;
+    }
+    
+
+    .section-work .container .work-wrap .col .content.nextproject{
+        padding: 40px 20px;
+        height: 300px;
+    }
+    .section-work .container .work-wrap .col .share{
+        left: 20px;
+    }
+    .section-work .container .work-wrap .nextproject p.next-head{
+        font-size: 30px!important;
+    }
+    .section-work .container .work-wrap .col .share p{
+        font-size: 20px;
+    }
+    .section-work .container .work-wrap .nextproject p.next-head span span.arrow{
+        left: 110px;
+        margin-top: -14px;
+    }
+    .section-work .container .work-wrap .nextproject p.next-head span span.arrow img{
+        width: 26px;
+    }
+    .section-work .container .work-wrap .col .share .at-style-responsive .at-share-btn{
+        padding: 7px;
     }
 
 }
