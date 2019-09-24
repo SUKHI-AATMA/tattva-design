@@ -12,8 +12,20 @@
 @media screen and (max-width: 1600px) {
 
     // work  detail page 
+    .section-work .container{
+        padding-bottom: 0px;
+    }
     .section-work .container .work-wrap .col .inner-col{
         padding-right: 50px;
+    }
+    .section-work .container .work-wrap .col .content .header-img{
+        max-width:220px;
+    }
+    .section-work .container .work-wrap .col .content{
+        width: 750px;
+    }
+    .section-work .container .work-wrap .col .iframe iframe{
+        width:1000px;
     }
 
     // contact page
@@ -52,8 +64,11 @@
     }
 
     // work detail
-    .section-work .container .work-wrap .col .content .header-img{
-        max-width:240px;
+    .section-work .container{
+        padding-bottom: 20px;
+    }
+    .section-work .container .work-wrap .col .content{
+        width: 600px;
     }
 
 }
