@@ -1072,11 +1072,27 @@ main.work-detail{
                     left: 50px;
                     
                     p{
-                        font-size: 24px;
+                        font-size: 20px;
                         font-weight: 500;
                     }
                     .at-style-responsive .at-share-btn{
                         padding: 10px;
+                    }
+                    .addthis_toolbox{
+                        img{
+                            width: 27px;
+                            margin-right: 10px;
+                        }
+                        .at-icon-wrapper{
+                            background-color: rgb(53, 53, 53) !important;
+                            height: 27px !important;
+                            width: 27px !important;
+
+                            svg{
+                                height: 27px !important;
+                                width: 27px !important;
+                            }
+                        }
                     }
                 }
 
@@ -1115,8 +1131,8 @@ main.work-detail{
                         span.arrow{
                             position: absolute;
                             top: 50%;
-                            left: 40%;
-                            margin-top: -32px;
+                            left: 200px;
+                            margin-top: -33px;
                             -webkit-animation: rightleft .7s infinite  alternate;
                             animation: rightleft .7s infinite  alternate;
                         }
