@@ -143,6 +143,8 @@ $(document).ready(function() {
 
 
 
+
+
 });
 
 
@@ -163,7 +165,7 @@ $(window).scroll(function() {
 
 // Home Slider Project  JSON Function
 function HomeSlider() {
-    var homeProjectURL = "https://api.sheetson.com/v1/sheets/HomeSlider?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+    var homeProjectURL = "https://api.sheetson.com/v1/sheets/TattvaProjects?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
 
     $.getJSON(homeProjectURL, function(data) {
         var results = data.results;
@@ -175,7 +177,7 @@ function HomeSlider() {
             if(result.status == 'show')
             {
                 output += `<a class="item" href="work-detail?title=`+result.title.replace(/\s+/g, '-')+`&id=`+result.id+`&rowIndex=`+result.rowIndex+`">
-                <img src="`+result.img+`" alt="">
+                <img src="`+result.homeimg+`" alt="">
                 <div class="content" style="`+result.styles+`">
                     <h2>`+result.title+`</h2>
                     <div class="hide">
