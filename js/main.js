@@ -142,7 +142,6 @@ $(document).ready(function() {
     }
 
 
-
     //work-detail page slider
     // var $carousel = $('.carousel').flickity({
     //     contain: true,
