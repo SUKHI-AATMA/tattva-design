@@ -39,26 +39,26 @@ $(document).ready(function() {
 
 
     // Home page - slider
-    var owlHome = $('#hmSliderCarousel .owl-carousel');
-    owlHome.owlCarousel({
-        loop: true,
-        nav: true,
-        dots: false,
-        smartSpeed: 500,
-        slideTransition: 'linear',
-        mouseDrag: false,
-        autoplay: false,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false,
-                dots: true
-            },
-            481: {
-                items: 2
-            }
-        },
-    });
+    // var owlHome = $('#hmSliderCarousel .owl-carousel');
+    // owlHome.owlCarousel({
+    //     loop: true,
+    //     nav: true,
+    //     dots: false,
+    //     smartSpeed: 500,
+    //     slideTransition: 'linear',
+    //     mouseDrag: false,
+    //     autoplay: false,
+    //     responsive: {
+    //         0: {
+    //             items: 1,
+    //             nav: false,
+    //             dots: true
+    //         },
+    //         481: {
+    //             items: 2
+    //         }
+    //     },
+    // });
 
     // about page - about us
     var owlAbout = $('#abtCarousel .owl-carousel');
@@ -159,6 +159,65 @@ $(window).scroll(function() {
         }
     }
 });
+
+
+// Home Slider Project  JSON Function
+function HomeSlider() {
+    var homeProjectURL = "https://api.sheetson.com/v1/sheets/HomeSlider?spreadsheetId=1X_sY__OvWKlIQ9ddU4cQxXlcZsXFjRgv7qTPZlEf5Bw"
+
+    $.getJSON(homeProjectURL, function(data) {
+        var results = data.results;
+
+        var output = ""; 
+
+        results.forEach(function (result) { 
+            //console.log(result);
+            if(result.status == 'show')
+            {
+                output += `<a class="item" href="work-detail?title=`+result.title.replace(/\s+/g, '-')+`&id=`+result.id+`&rowIndex=`+result.rowIndex+`">
+                <img src="`+result.img+`" alt="">
+                <div class="content" style="`+result.styles+`">
+                    <h2>`+result.title+`</h2>
+                    <div class="hide">
+                        <p>`+result.desc+`</p>
+                    </div>
+                </div>
+                </a>`;
+            }
+        });
+
+        $("#HomeSlider").append(output);
+        // $("#projectListing").append('</div>');
+
+    }).done(function() {
+
+        setTimeout(function() {
+            // Home page - slider
+            var owlHome = $('#hmSliderCarousel .owl-carousel');
+            owlHome.owlCarousel({
+                loop: true,
+                nav: true,
+                dots: false,
+                smartSpeed: 500,
+                slideTransition: 'linear',
+                mouseDrag: false,
+                autoplay: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false,
+                        dots: true
+                    },
+                    481: {
+                        items: 2
+                    }
+                },
+            });
+
+        }, 500);
+        
+    });
+}
 
 
 
@@ -375,6 +434,8 @@ function projectDetail(rowIndex) {
     });
 
 }
+
+
 $(document).ready(function() {
     var href = location.href.split("/").slice(-1);
     var href1 = href[0].split('?');
@@ -385,12 +446,13 @@ $(document).ready(function() {
 });
 
 
+
 $(window).on('load', function() {
 
-    // Project Detail page
-    // if($("#projectDetail").length){
-    //     projectDetail();
-    // }
+    // Home page
+    if($(".section-slider").length){
+        HomeSlider();
+    } 
 
     // Project Listing page
     if ($("#projectListing").length) {
