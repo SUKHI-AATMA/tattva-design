@@ -1252,6 +1252,7 @@ main.work-detail{
                             & + label {
                                 position: absolute;
                                 top: 10px;
+                                left:0;
                                 transition: top 0.3s ease, opacity 0.3s ease;
                                 opacity: 0;
                                 font-size: 14px;
@@ -1265,6 +1266,7 @@ main.work-detail{
                             &:valid + label {
                                 opacity: 1;
                                 top: -15px;
+                                left:0;
                             }
                             &:focus{
                                 border-color:$mediumGrey;
