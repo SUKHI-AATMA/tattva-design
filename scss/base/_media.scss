@@ -9,6 +9,12 @@
 
 }
 
+@media only screen and (min-width : 1600px) and (max-height: 850px) {
+    .section-contact {
+        height: 100vh;
+    }
+}
+
 @media screen and (max-width: 1600px) {
 
     // work  detail page 
@@ -30,6 +36,9 @@
    
 
     // contact page
+    .section-contact .container .inner-wrap .flex{
+        padding-top: 3%;
+    }
     .section-contact .container .inner-wrap .flex .contact-block{
         flex-wrap: wrap;
     }

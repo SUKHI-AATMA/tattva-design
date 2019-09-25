@@ -144,12 +144,12 @@ header{
                         color: $black;
 
                         &:hover {
-                            font-weight: 600;
+                            font-weight: 500;
                             @include transition(.3s ease-in-out);
                         }
 
                         &.active {
-                            font-weight: 600;
+                            font-weight: 500;
                         }
                     }
                 }
@@ -208,7 +208,7 @@ footer{
             @include fontregular;
 
             &:hover{
-                font-weight: 600;
+                font-weight: 500;
             }
         }
     }
@@ -1072,7 +1072,7 @@ main.work-detail{
                     left: 50px;
                     
                     p{
-                        font-size: 20px;
+                        color: #6e6e6e;
                         font-weight: 500;
                     }
                     .at-style-responsive .at-share-btn{
@@ -1089,6 +1089,7 @@ main.work-detail{
                             width: 27px !important;
 
                             svg{
+                                fill : #6e6e6e !important;
                                 height: 27px !important;
                                 width: 27px !important;
                             }
@@ -1133,8 +1134,8 @@ main.work-detail{
                             top: 50%;
                             left: 200px;
                             margin-top: -33px;
-                            -webkit-animation: rightleft .7s infinite  alternate;
-                            animation: rightleft .7s infinite  alternate;
+                            // -webkit-animation: rightleft .7s infinite  alternate;
+                            // animation: rightleft .7s infinite  alternate;
                         }
                     }
                 }   
@@ -1194,19 +1195,19 @@ main.work-detail{
                     .box{
                         width: 100%;
                         height: 100%;
-                        border: 2px solid $dark;
+                        border: 1px solid $dark;
 
                         iframe{
                             width: 100%;
                             height:100%;
                         }
                     }
-                    .container {
-                        width: 200px;
-                        height: 200px;
-                        position: relative;
-                        border-top: 4px solid #e74c3c;
-                    }
+                    // .container {
+                    //     width: 200px;
+                    //     height: 200px;
+                    //     position: relative;
+                    //     border-top: 4px solid #e74c3c;
+                    // }
                     
                     
                 }
@@ -1217,34 +1218,34 @@ main.work-detail{
                         position: relative;
                         margin-bottom: 38px;
                         input, textarea{
-                            border-bottom: 2px solid $darkGrey;
+                            border-bottom: 1px solid $darkGrey;
                             width: 100%;
                             padding: 5px 0;
                             font-size: 16px;
                             color:$dark;
                             font-family: 'Roboto', sans-serif;
-                            font-weight: 600;
+                            font-weight: 400;
                             z-index: 9;
 
                             &::-webkit-input-placeholder { 
                                 color: $dark;
                                 font-family: 'Roboto', sans-serif;
-                                font-weight: 600;
+                                font-weight: 400;
                             }
                             &::-moz-placeholder {
                                 color: $dark;
                                 font-family: 'Roboto', sans-serif;
-                                font-weight: 600;
+                                font-weight: 400;
                             }
                             &:-ms-input-placeholder{
                                 color: $dark;
                                 font-family: 'Roboto', sans-serif;
-                                font-weight: 600;
+                                font-weight: 400;
                             }
                             &:-moz-placeholder{
                                 color: $dark;
                                 font-family: 'Roboto', sans-serif;
-                                font-weight: 600;
+                                font-weight: 400;
                             }
 
                             & + label {
@@ -1253,35 +1254,35 @@ main.work-detail{
                                 transition: top 0.3s ease, opacity 0.3s ease;
                                 opacity: 0;
                                 font-size: 14px;
-                                font-weight: 600;
+                                font-weight: 400;
                                 color: #999999;
                                 -webkit-transition: top 0.3s ease, opacity 0.3s ease;
                                 -moz-transition: top 0.3s ease, opacity 0.3s ease;
                                 -ms-transition: top 0.3s ease, opacity 0.3s ease;
                                 -o-transition: top 0.3s ease, opacity 0.3s ease;
 }
-                              &:valid + label {
+                            &:valid + label {
                                 opacity: 1;
                                 top: -15px;
-                              }
-                              &:focus{
-                                  border-color:$mediumGrey;
-                              }
-                              &:focus + label {
+                            }
+                            &:focus{
+                                border-color:$mediumGrey;
+                            }
+                            &:focus + label {
                                 //color: #2c8efe;
-                              }
+                            }
                         }
                         
                         span{
                             font-size: 14px;
                             color: #f00;
-                            font-weight: 600;
+                            font-weight: 400;
                         }
                         label.err-label{
                             opacity: 1;
                             top: -15px;
                             color: $mediumGrey;
-                            font-weight: 600;
+                            font-weight: 400;
                             font-size: 14px;
                         }
 
@@ -1291,7 +1292,6 @@ main.work-detail{
                             height: 41px;
                         }
 
-                        
                     }
 
 
@@ -1303,8 +1303,8 @@ main.work-detail{
                             color: $dark;
                             font-size: 16px;
                             font-family: 'Roboto', sans-serif;
-                            font-weight: 600;
-                            border: 2px solid $dark;
+                            font-weight: 400;
+                            border: 1px solid $dark;
 
                             &:hover{
                                 @include transition(.3s ease-in-out);
@@ -1322,7 +1322,7 @@ main.work-detail{
 
                     p{
                         font-size: 16px;
-                        font-weight: 900;
+                        font-weight: 400;
                         margin-bottom: 20px;
                     }
                     .locate-us{
@@ -1360,6 +1360,7 @@ main.work-detail{
         }
     }
 }
+
 
 
 //========================= Thank you Page

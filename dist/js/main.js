@@ -208,6 +208,10 @@ function HomeSlider() {
     }).done(function() {
 
         setTimeout(function() {
+            $('.loading').fadeOut(500, '', function() {
+                $('.loading').remove();
+            });
+
             // Home page - slider
             var owlHome = $('#hmSliderCarousel .owl-carousel');
             owlHome.owlCarousel({
@@ -369,7 +373,7 @@ function projectDetail(rowIndex) {
             (data['metaTitle'] !== '' || data['metaDescription'] !== '' || data['metaImage'] !== '') ?
             (
                 meta = `
-                    <title>`+data['metaTitle']+`</title>
+                    <title>`+data['metaTitle']+` | Tattva Design</title>
                     <meta name="title" content="`+data['metaTitle']+`">
                     <meta name="description" content="`+data['metaDescription']+`">
 
@@ -474,6 +478,17 @@ $(window).on('load', function() {
     if ($("#projectListing").length) {
         projectListing();
     }
+
+    //$(window).load(function () {
+	    //$('body').removeClass('loading');
+        setTimeout(function () {
+            $('.loading').fadeOut(500, '', function() {
+                $('.loading').remove();
+            });
+        }, 500);
+    //});   
+
+    
 
 });
 
