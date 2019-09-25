@@ -9,13 +9,25 @@
 
 }
 
-@media only screen and (min-width : 1600px) and (max-height: 850px) {
+@media only screen and (min-width : 1600px) and (min-height: 757px) and (max-height: 850px) {
+    .section-banner{
+        .img{
+            max-width: 40%;
+            margin: 0 auto;
+
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
     .section-contact {
         height: 100vh;
     }
 }
 
 @media screen and (max-width: 1600px) {
+
 
     // work  detail page 
     .section-work .container{
@@ -33,7 +45,7 @@
     .section-work .container .work-wrap .col .iframe iframe{
         width:1000px;
     }
-   
+
 
     // contact page
     .section-contact .container .inner-wrap .flex{
@@ -53,7 +65,7 @@
     .section-contact .container .inner-wrap .flex .contact-wrap .form-group{
         margin-bottom: 25px;
     }
- }
+}
 
 @media screen and (max-width: 1440px) {
 
@@ -555,8 +567,11 @@
         padding-left: 0px;
         padding-right: 0px;
     }
-    .section-social .container .col .box{
-        width: 100%;
+    // .section-social .container .col .box{
+    //     width: 100%;
+    // }
+    .section-social .container .col .box .pos img {
+        max-width: 120px;
     }
     .section-social .container .col .inner-box{
         padding: 0 20px;
@@ -569,7 +584,6 @@
         padding: 0 0 0 20px;
     }
     
-
 
     .section-team .container .inner-wrap .team-wrap .inner-col{
         margin: 0;
