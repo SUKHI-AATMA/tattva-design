@@ -483,7 +483,7 @@
         float: unset;
         width: 500px;
         margin: 0 auto;
-        margin-bottom: 1px;
+        //margin-bottom: 1px;
     }
     .section-work .container .work-wrap .col img{
         width: 100%;
@@ -491,6 +491,7 @@
     }
     .section-work .container .work-wrap .col .content{
         width: 500px;
+        border-bottom: 1px solid #fff;
     }
     .section-work .container .work-wrap .col .iframe iframe {
         max-width: 500px;

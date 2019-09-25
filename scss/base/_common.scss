@@ -985,7 +985,7 @@ main.work-detail{
                 display: inline-block;
                 height: 100%;
                 cursor: pointer;
-                margin-right: 1px;
+                //margin-right: 1px;
 
                 &:first-child{
                     width: 50vw;
@@ -1030,7 +1030,7 @@ main.work-detail{
                     padding: 40px 40px;
                     width: 650px;
                     height: 100%;
-                    //background-color: #ffc50a;
+                    border-right: 1px solid #fff;
                     
                     h3{
                         font-size: 24px;
