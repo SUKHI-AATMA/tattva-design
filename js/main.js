@@ -479,22 +479,17 @@ $(window).on('load', function() {
         projectListing();
     }
 
-    //$(window).load(function () {
-	    //$('body').removeClass('loading');
-        setTimeout(function () {
-            $('.loading').fadeOut(500, '', function() {
-                $('.loading').remove();
-            });
-        }, 500);
-    //});   
-
+    if (($(".about-pg").length) && ($(".contact-pg").length)){
+        // setTimeout(function () {
+        //     $('.loading').fadeOut(500, '', function() {
+        //         $('.loading').remove();
+        //     });
+        // }, 500);
+    }
     
 
 });
 
-
-// work page masonry filters
-$(window).on('load', function() {});
 
 
 $(window).resize(function() {

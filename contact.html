@@ -19,8 +19,16 @@
         gtag('config', 'UA-146795914-1');
     </script>
 
+    <script>
+        setTimeout(function () {
+            $('.loading').fadeOut(500, '', function() {
+                $('.loading').remove();
+            });
+        }, 500);
+    </script>
+
 </head>
-<body>
+<body class="contact-pg">
     <div class="loading">
         <div class="loader">
             <div class="dot-container">
