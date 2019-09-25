@@ -479,14 +479,6 @@ $(window).on('load', function() {
         projectListing();
     }
 
-    if (($(".about-pg").length) && ($(".contact-pg").length)){
-        // setTimeout(function () {
-        //     $('.loading').fadeOut(500, '', function() {
-        //         $('.loading').remove();
-        //     });
-        // }, 500);
-    }
-    
 
 });
 
