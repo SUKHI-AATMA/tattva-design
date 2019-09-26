@@ -28,7 +28,6 @@
 
 @media screen and (max-width: 1600px) {
 
-
     // work  detail page 
     .section-work .container{
         padding-bottom: 0px;
@@ -49,12 +48,16 @@
         width:1000px;
     }
     .section-work .container .work-wrap .nextproject p.next-head{
-        font-size: 40px!important;
+        font-size: 40px !important;
     }
     .section-work .container .work-wrap .nextproject p.next-head span span.arrow{
         left: 120px;
         margin-top: -21px;
     }
+    .section-work .container .work-wrap .col img.rightArrow{
+        width:44px;
+    }
+
     // .section-work .container .work-wrap .col img{
     //     width: 40px;
     // }
