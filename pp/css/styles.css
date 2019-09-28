@@ -61,13 +61,10 @@
 }
 
 .container .banner {
-    display: flex;
-    height: auto;
-    width: auto;
+    display: block;
 }
 
 .container .banner img {
-    float: left;
     width: 100%;
 }
 
