@@ -67,9 +67,7 @@
 }
 
 .container .banner img {
-    display: block;
-    height: auto;
-    width: 100%;
+    float: left;
 }
 
 .container section.pujorockstar {
