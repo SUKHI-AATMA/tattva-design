@@ -370,7 +370,7 @@ section.contact .form .formContainer p:nth-child(2) input {
 
 .button {
     position: absolute;
-    bottom: 0;
+    bottom: 15%;
     left: 0;
     text-align: center;
     transform: translate(0, 50%);
@@ -732,5 +732,16 @@ section.days h2.gifting {
 
     .container section.pujorockstar:after {
         top: 40%;
+    }
+
+    .button {
+        position: relative;
+        bottom: 5%;
+        left: auto;
+        z-index: 1;
+    }
+
+    .pujoDays p {
+        width: 100%;
     }
 }
