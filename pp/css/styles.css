@@ -62,6 +62,8 @@
 
 .container .banner {
     display: flex;
+    height: auto;
+    width: auto;
 }
 
 .container .banner img {
