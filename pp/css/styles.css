@@ -68,6 +68,7 @@
 
 .container .banner img {
     float: left;
+    width: 100%;
 }
 
 .container section.pujorockstar {
