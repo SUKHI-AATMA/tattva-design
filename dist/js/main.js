@@ -254,7 +254,7 @@ function projectListing() {
         results.forEach(function(result) {
             // console.log(result);
             if (result.status == 'show') {
-                output += `<div class="item" data-category="` + result.category + `">
+                output += `<div class="item `+ result.category +`" data-category="` + result.category + `">
 <a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="work-detail?` + result.title.replace(/\s+/g, '-') + `&rowIndex=` + result.rowIndex + `">
 <div class="desc">
 <img src="` + result.img + `" alt="">
@@ -484,13 +484,13 @@ $(window).on('load', function() {
 
 
 
-$(window).resize(function() {
-    if ($('.section-workshow').length) {
-        clearTimeout(grabWinWidth);
-        grabWinWidth = setTimeout(resizedWin, 100);
-    }
+// $(window).resize(function() {
+//     if ($('.section-workshow').length) {
+//         clearTimeout(grabWinWidth);
+//         grabWinWidth = setTimeout(resizedWin, 100);
+//     }
 
-});
+// });
 
 function resizedWin() {
     if ($('.section-workshow').length) {
