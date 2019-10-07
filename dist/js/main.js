@@ -449,8 +449,9 @@ function projectDetail(rowIndex) {
                             // setTimeout(function() {
                             $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
                             $('.addthis_toolbox a').attr('data-url', window.location);
-                            $('.addthis_toolbox a').attr('data-title', window.location);
-                            $('.addthis_toolbox a').attr('data-description', window.location);
+                            $('.addthis_toolbox a').attr('data-title', data['metaTitle']);
+                            $('.addthis_toolbox a').attr('data-description', data['metaDescription']);
+                            $('.addthis_toolbox a').attr('data-media', data['metaImage']);
                             // }, 900);
                         }
                         $('.loading').fadeOut(300, '', function() {
