@@ -184,18 +184,17 @@ function HomeSlider() {
     $.getJSON(homeProjectURL, function(data) {
         var results = data.results;
 
-        var output = ""; 
+        var output = "";
 
-        results.forEach(function (result) { 
+        results.forEach(function(result) {
             //console.log(result);
-            if(result.status == 'show')
-            {
-                output += `<a class="item" href="work-detail?title=`+result.title.replace(/\s+/g, '-')+`&id=`+result.id+`&rowIndex=`+result.rowIndex+`">
-                <img src="`+result.homeimg+`" alt="">
-                <div class="content" style="`+result.styles+`">
-                    <h2>`+result.title+`</h2>
+            if (result.status == 'show') {
+                output += `<a class="item" href="work-detail?title=` + result.title.replace(/\s+/g, '-') + `&id=` + result.id + `&rowIndex=` + result.rowIndex + `">
+                <img src="` + result.homeimg + `" alt="">
+                <div class="content" style="` + result.styles + `">
+                    <h2>` + result.title + `</h2>
                     <div class="hide">
-                        <p>`+result.desc+`</p>
+                        <p>` + result.desc + `</p>
                     </div>
                 </div>
                 </a>`;
@@ -235,7 +234,7 @@ function HomeSlider() {
             });
 
         }, 500);
-        
+
     });
 }
 
@@ -254,7 +253,7 @@ function projectListing() {
         results.forEach(function(result) {
             // console.log(result);
             if (result.status == 'show') {
-                output += `<div class="item `+ result.category +`" data-category="` + result.category + `">
+                output += `<div class="item ` + result.category + `" data-category="` + result.category + `">
 <a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="work-detail?` + result.title.replace(/\s+/g, '-') + `&rowIndex=` + result.rowIndex + `">
 <div class="desc">
 <img src="` + result.img + `" alt="">
@@ -321,7 +320,7 @@ function getParameterByName(name) {
         return decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 }
-
+var flag = 0;
 
 // Project Detail (Artboard) JSON Function
 function projectDetail(rowIndex) {
@@ -341,14 +340,15 @@ function projectDetail(rowIndex) {
         //  console.log('resultgghh',data);
 
         var keyList = [
-            undefined,
-            'rowIndex',
-            'id',
-            'title',
-            'metaTitle',
-            'metaDescription',
-            'metaImage',
-        ],meta;
+                undefined,
+                'rowIndex',
+                'id',
+                'title',
+                'metaTitle',
+                'metaDescription',
+                'metaImage',
+            ],
+            meta;
 
         for (var key in data) {
             if (!keyList.includes(key)) {
@@ -373,25 +373,25 @@ function projectDetail(rowIndex) {
             (data['metaTitle'] !== '' || data['metaDescription'] !== '' || data['metaImage'] !== '') ?
             (
                 meta = `
-                    <title>`+data['metaTitle']+` | Tattva Design</title>
-                    <meta name="title" content="`+data['metaTitle']+`">
-                    <meta name="description" content="`+data['metaDescription']+`">
+                    <title>` + data['metaTitle'] + ` | Tattva Design</title>
+                    <meta name="title" content="` + data['metaTitle'] + `">
+                    <meta name="description" content="` + data['metaDescription'] + `">
 
 
                     <meta property="og:type" content="website">
-                    <meta property="og:url" content="`+window.location.href+`">
-                    <meta property="og:title" content="`+data['metaTitle']+`">
-                    <meta property="og:description" content="`+data['metaDescription']+`">
-                    <meta property="og:image" content="`+data['metaImage']+`">
+                    <meta property="og:url" content="` + window.location.href + `">
+                    <meta property="og:title" content="` + data['metaTitle'] + `">
+                    <meta property="og:description" content="` + data['metaDescription'] + `">
+                    <meta property="og:image" content="` + data['metaImage'] + `">
 
 
                     <meta property="twitter:card" content="summary_large_image">
-                    <meta property="twitter:url" content="`+window.location.href+`">
-                    <meta property="twitter:title" content="`+data['metaTitle']+`">
-                    <meta property="twitter:description" content="`+data['metaDescription']+`">
-                    <meta property="twitter:image" content="`+data['metaImage']+`">
+                    <meta property="twitter:url" content="` + window.location.href + `">
+                    <meta property="twitter:title" content="` + data['metaTitle'] + `">
+                    <meta property="twitter:description" content="` + data['metaDescription'] + `">
+                    <meta property="twitter:image" content="` + data['metaImage'] + `">
                 `
-            ) : 
+            ) :
             (
                 meta = `
                     <title>Tattva Design</title>
@@ -419,37 +419,51 @@ function projectDetail(rowIndex) {
 
         $("#projectDetail ul").append(output);
         $("#projectDetail ul").append('</ul>');
-
         //if ($(window).width() > 990) {
-            setTimeout(function() {
-                
-                if ($(window).width() > 990) {
-                    //work-detail page slider
-                    var $carousel = $('.carousel').flickity({
-                        contain: true,
-                        pageDots: false,
-                        freeScroll: true
-                    });
+        // setTimeout(function() {
+        $("#projectDetail ul img").each(function() {
+            var $this = $(this);
+            var src = $this.attr('data-src');
+            $.ajax({
+                url: src,
+                success: function(result) {
+                    // $("#div1").html(result);
+                    flag = flag + 1;
+                    if ($("#projectDetail ul img").length == flag) {
+                        console.log(111);
+                        if ($(window).width() > 990) {
+                            //work-detail page slider
+                            var $carousel = $('.carousel').flickity({
+                                contain: true,
+                                pageDots: false,
+                                freeScroll: true
+                            });
 
-                    var $carousel = $('.carousel').flickity();
+                            var $carousel = $('.carousel').flickity();
 
-                    $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
-                        if (typeof cellIndex == 'number') {
-                            $carousel.flickity('selectCell', cellIndex);
+                            $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
+                                if (typeof cellIndex == 'number') {
+                                    $carousel.flickity('selectCell', cellIndex);
+                                }
+                            });
+                            // setTimeout(function() {
+                            $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
+                            $('.addthis_toolbox a').attr('href', window.location);
+                            // }, 900);
                         }
-                    });
+                        $('.loading').fadeOut(300, '', function() {
+                            $('.loading').remove();
+                        });
+                    }
+                    $this.attr('src', src);
                 }
-                $('.loading').fadeOut(300, '', function() {
-                    $('.loading').remove();
-                });
-                // $('a.nextProject').on('click',function(){
-                //     projectDetail(getParameterByName('rowIndex'));
-                //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
-                // });
-                setTimeout(function() {
-                    $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
-                }, 900);
-            }, 1000);
+            });
+        });
+        // $('a.nextProject').on('click',function(){
+        //     projectDetail(getParameterByName('rowIndex'));
+        //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
+        // });
+        // }, 1000);
         //}
     });
 
@@ -470,9 +484,9 @@ $(document).ready(function() {
 $(window).on('load', function() {
 
     // Home page
-    if($(".section-slider").length){
+    if ($(".section-slider").length) {
         HomeSlider();
-    } 
+    }
 
     // Project Listing page
     if ($("#projectListing").length) {
