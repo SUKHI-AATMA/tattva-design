@@ -453,10 +453,10 @@ function projectDetail(rowIndex) {
                                description: data['metaDescription'],
                                media: data['metaImage']
                             }
-                            $('.addthis_toolbox').attr('addthis:url', window.location);
-                            $('.addthis_toolbox').attr('addthis:title', data['metaTitle']);
-                            $('.addthis_toolbox').attr('addthis:description', data['metaDescription']);
-                            $('.addthis_toolbox').attr('addthis:media', data['metaImage']);
+                            $('.addthis_toolbox').attr('data-url', window.location);
+                            $('.addthis_toolbox').attr('data-title', data['metaTitle']);
+                            $('.addthis_toolbox').attr('data-description', data['metaDescription']);
+                            $('.addthis_toolbox').attr('data-media', data['metaImage']);
                             $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
                              // addthis:url="THE URL" addthis:title="THE TITLE" addthis:description="THE DESCRIPTION" addthis:media="THE IMAGE"
                             // }, 900);
