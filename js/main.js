@@ -255,18 +255,18 @@ function projectListing() {
             // console.log(result);
             if (result.status == 'show') {
                 output += `<div class="item `+ result.category +`" data-category="` + result.category + `">
-<a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="work-detail?` + result.title.replace(/\s+/g, '-') + `&rowIndex=` + result.rowIndex + `">
-<div class="desc">
-<img src="` + result.img + `" alt="">
-</div>
-<div class="content" style="` + result.styles + `">
-<h2>` + result.title + `</h2>
-<div class="hide">
-<p>` + result.desc + `</p>
-</div>
-</div>
-</a>
-</div>`;
+                <a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="work-detail?` + result.title.replace(/\s+/g, '-') + `&rowIndex=` + result.rowIndex + `">
+                <div class="desc">
+                <img src="` + result.img + `" alt="">
+                </div>
+                <div class="content" style="` + result.styles + `">
+                <h2>` + result.title + `</h2>
+                <div class="hide">
+                <p>` + result.desc + `</p>
+                </div>
+                </div>
+                </a>
+                </div>`;
             }
             // $('a.link').on('click',function(){
             //     projectDetail(getParameterByName('rowIndex'));
@@ -476,7 +476,28 @@ $(window).on('load', function() {
 
     // Project Listing page
     if ($("#projectListing").length) {
-        projectListing();
+        // projectListing();
+        setTimeout(function() {
+            masonryEffect();
+            $('.loading').fadeOut(500, '', function() {
+                $('.loading').remove();
+            });
+        }, 1000);
+
+        $(".filter-box").addClass("all");
+        $(".filter-nav li").click(function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            if ($(this).attr("data-filter") != "all") {
+                $(".filter-box").removeClass("all");
+                $(".item." + $(this).attr("data-filter")).show().siblings(":not(.item." + $(this).attr('data-filter') + ")").hide();
+                $(":not(.item." + $(this).attr('data-filter') + ")").css({ "left": "" });
+                //console.log("click");
+            } else {
+                $(".filter-box").addClass("all");
+                $(".item").show();
+            }
+            masonryEffect();
+        });
     }
 
 
