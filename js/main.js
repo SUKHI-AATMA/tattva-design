@@ -61,48 +61,55 @@ $(document).ready(function() {
     // });
 
     // about page - about us
-    var owlAbout = $('#abtCarousel .owl-carousel');
-    owlAbout.owlCarousel({
-        loop: true,
-        nav: false,
-        smartSpeed: 500,
-        slideTransition: 'linear',
-        mouseDrag: false,
-        autoplay: true,
-        responsive: {
-            0: {
-                items: 1
+    if($('#abtCarousel .owl-carousel').length)
+    {
+        var owlAbout = $('#abtCarousel .owl-carousel');
+        owlAbout.owlCarousel({
+            loop: true,
+            nav: false,
+            smartSpeed: 500,
+            slideTransition: 'linear',
+            mouseDrag: false,
+            autoplay: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
             },
-            1000: {
-                items: 1
-            }
-        },
-    });
+        });
+    }
 
     // about page - Team
-    var owlTeam = $('#team .owl-carousel');
-    owlTeam.owlCarousel({
-        //margin:50,
-        dots: false,
-        nav: true,
-        mouseDrag: false,
-        touchDrag: false,
-        responsive: {
-            0: {
-                items: 1,
-                mouseDrag: true,
-                touchDrag: true,
-                dots: true,
-                nav: false,
-            },
-            768: {
-                items: 2
-            },
-            1025: {
-                items: 3
+    if($('#team .owl-carousel').length)
+    {
+        var owlTeam = $('#team .owl-carousel');
+        owlTeam.owlCarousel({
+            //margin:50,
+            dots: false,
+            nav: true,
+            mouseDrag: false,
+            touchDrag: false,
+            responsive: {
+                0: {
+                    items: 1,
+                    mouseDrag: true,
+                    touchDrag: true,
+                    dots: true,
+                    nav: false,
+                },
+                768: {
+                    items: 2
+                },
+                1025: {
+                    items: 3
+                }
             }
-        }
-    });
+        });
+
+    }
 
 
     // Hide Header on on scroll down
@@ -370,7 +377,9 @@ function projectDetail(rowIndex) {
 
             }
             // console.log(data['metaTitle'] !== '' || data['metaDescription'] !== '' || data['metaImage'] !== '');
-            (data['metaTitle'] !== '' || data['metaDescription'] !== '' || data['metaImage'] !== '') ?
+            
+        }
+        (data['metaTitle'] !== '' || data['metaDescription'] !== '' || data['metaImage'] !== '') ?
             (
                 meta = `
                     <title>`+data['metaTitle']+` | Tattva Design</title>
@@ -414,7 +423,6 @@ function projectDetail(rowIndex) {
                 `
             );
             $('head').append(meta);
-        }
         // });
 
         $("#projectDetail ul").append(output);
@@ -427,7 +435,7 @@ function projectDetail(rowIndex) {
                     //work-detail page slider
                     $('#projectDetail ul').waitForImages(function() {
                         // All descendant images have loaded, now slide up.
-                        $(this).slideUp();
+                        // $(this).slideUp();
                         var $carousel = $('.carousel').flickity({
                             contain: true,
                             pageDots: false,
@@ -437,11 +445,11 @@ function projectDetail(rowIndex) {
 
                     // var $carousel = $('.carousel').flickity();
 
-                    $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
-                        if (typeof cellIndex == 'number') {
-                            $carousel.flickity('selectCell', cellIndex);
-                        }
-                    });
+                    // $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
+                    //     if (typeof cellIndex == 'number') {
+                    //         $carousel.flickity('selectCell', cellIndex);
+                    //     }
+                    // });
                 }
                 $('.loading').fadeOut(300, '', function() {
                     $('.loading').remove();
