@@ -425,13 +425,17 @@ function projectDetail(rowIndex) {
                 
                 if ($(window).width() > 990) {
                     //work-detail page slider
-                    var $carousel = $('.carousel').flickity({
-                        contain: true,
-                        pageDots: false,
-                        freeScroll: true
+                    $('#projectDetail ul').waitForImages(function() {
+                        // All descendant images have loaded, now slide up.
+                        $(this).slideUp();
+                        var $carousel = $('.carousel').flickity({
+                            contain: true,
+                            pageDots: false,
+                            freeScroll: true
+                        });
                     });
 
-                    var $carousel = $('.carousel').flickity();
+                    // var $carousel = $('.carousel').flickity();
 
                     $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
                         if (typeof cellIndex == 'number') {
