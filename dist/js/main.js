@@ -441,6 +441,16 @@ function projectDetail(rowIndex) {
                             pageDots: false,
                             freeScroll: true
                         });
+                        $('.loading').fadeOut(300, '', function() {
+                            $('.loading').remove();
+                        });
+                        // $('a.nextProject').on('click',function(){
+                        //     projectDetail(getParameterByName('rowIndex'));
+                        //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
+                        // });
+                        setTimeout(function() {
+                            $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
+                        }, 900);
                     });
 
                     // var $carousel = $('.carousel').flickity();
@@ -451,16 +461,6 @@ function projectDetail(rowIndex) {
                     //     }
                     // });
                 }
-                $('.loading').fadeOut(300, '', function() {
-                    $('.loading').remove();
-                });
-                // $('a.nextProject').on('click',function(){
-                //     projectDetail(getParameterByName('rowIndex'));
-                //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
-                // });
-                setTimeout(function() {
-                    $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
-                }, 900);
             }, 1000);
         //}
     });
