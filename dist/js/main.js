@@ -262,18 +262,18 @@ function projectListing() {
             // console.log(result);
             if (result.status == 'show') {
                 output += `<div class="item `+ result.category +`" data-category="` + result.category + `">
-<a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="work-detail?` + result.title.replace(/\s+/g, '-') + `&rowIndex=` + result.rowIndex + `">
-<div class="desc">
-<img src="` + result.img + `" alt="">
-</div>
-<div class="content" style="` + result.styles + `">
-<h2>` + result.title + `</h2>
-<div class="hide">
-<p>` + result.desc + `</p>
-</div>
-</div>
-</a>
-</div>`;
+                <a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="projects/` + result.title.replace(/\s+/g, '-').toLowerCase() + `">
+                <div class="desc">
+                <img src="` + result.img + `" alt="">
+                </div>
+                <div class="content" style="` + result.styles + `">
+                <h2>` + result.title + `</h2>
+                <div class="hide">
+                <p>` + result.desc + `</p>
+                </div>
+                </div>
+                </a>
+                </div>`;
             }
             // $('a.link').on('click',function(){
             //     projectDetail(getParameterByName('rowIndex'));
@@ -488,7 +488,7 @@ $(window).on('load', function() {
 
     // Project Listing page
     if ($("#projectListing").length) {
-        projectListing();
+        // projectListing();
     }
 
 

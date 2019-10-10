@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="dist/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="/dist/css/style.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"> -->
 
     <title>Work | Tattva Design</title>
 
@@ -30,7 +30,7 @@
             <div class="inner-wrap flex-wrap">
                 <div class="logo">
                     <a href="/">
-                        <img src="images/logo-black.svg" alt="Tattva Design" title="Tattva Design">
+                        <img src="/images/logo-black.svg" alt="Tattva Design" title="Tattva Design">
                     </a>
                 </div>
                 <div class="menu">
@@ -82,7 +82,57 @@
                     </div>
                     <div class="filter-wrap">
                         <div class="filter-body">
-                            <div class="filter-box" id="projectListing"></div>
+                            <div class="filter-box" id="projectListing">
+                            <div class="item branding illustration web" data-category="branding illustration web">
+                <a class="link" data-id="TD001" data-rowIndex="1" href="projects/kalon">
+                <div class="desc">
+                <img src="images/work/thumbnail/kalon-thumb.jpg" alt="">
+                </div>
+                <div class="content" style="background:#fbc309">
+                <h2>Kalon</h2>
+                <div class="hide">
+                <p>Positioning, Messaging, Brand Identity, Design (UI/UX), Brand Communication, Product and packaging design.</p>
+                </div>
+                </div>
+                </a>
+                </div><div class="item branding web" data-category="branding web">
+                <a class="link" data-id="TD002" data-rowIndex="2" href="projects/the-chalk-company">
+                <div class="desc">
+                <img src="images/work/thumbnail/the-chalk-co-thumb.jpg" alt="">
+                </div>
+                <div class="content" style="background:#df5842">
+                <h2>The Chalk Company</h2>
+                <div class="hide">
+                <p>Positioning and Branding</p>
+                </div>
+                </div>
+                </a>
+                </div><div class="item illustration web" data-category="illustration web">
+                <a class="link" data-id="TD003" data-rowIndex="3" href="projects/natures-pride">
+                <div class="desc">
+                <img src="images/work/thumbnail/natures-pride-thumb.jpg" alt="">
+                </div>
+                <div class="content" style="background:#b2cf33">
+                <h2>Nature's Pride</h2>
+                <div class="hide">
+                <p>Positioning, Messaging, Brand Identity, Design (UI/UX), Brand Communication, Product and packaging design.</p>
+                </div>
+                </div>
+                </a>
+                </div><div class="item branding illustration space design" data-category="branding illustration space design">
+                <a class="link" data-id="TD004" data-rowIndex="4" href="projects/chitrakatha">
+                <div class="desc">
+                <img src="images/work/thumbnail/ChitraKatha-thumb.jpg" alt="">
+                </div>
+                <div class="content" style="background:#73bb95">
+                <h2>ChitraKatha</h2>
+                <div class="hide">
+                <p>Positioning, Brand Identity, Brand Architecture, Space Design, Illustration, Creative Direction.</p>
+                </div>
+                </div>
+                </a>
+                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,10 +170,35 @@
             </div>
         </div>
     </footer>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
+    <script src="/dist/js/main.js"></script>
+    <script>
+        $(window).on('load',function(){
+            setTimeout(function() {
+                masonryEffect();
+                $('.loading').fadeOut(500, '', function() {
+                    $('.loading').remove();
+                });
+            }, 1000);
+
+            $(".filter-box").addClass("all");
+            $(".filter-nav li").click(function() {
+                $(this).addClass('active').siblings().removeClass('active');
+                if ($(this).attr("data-filter") != "all") {
+                    $(".filter-box").removeClass("all");
+                    $(".item." + $(this).attr("data-filter")).show().siblings(":not(.item." + $(this).attr('data-filter') + ")").hide();
+                    $(":not(.item." + $(this).attr('data-filter') + ")").css({ "left": "" });
+                    //console.log("click");
+                } else {
+                    $(".filter-box").addClass("all");
+                    $(".item").show();
+                }
+                masonryEffect();
+            });
+        });
+    </script>
 </body>
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script src="dist/js/main.js"></script>
 
 </html>
