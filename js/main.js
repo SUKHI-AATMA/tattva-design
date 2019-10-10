@@ -212,6 +212,7 @@ function HomeSlider() {
         $("#HomeSlider").append(output);
         // $("#projectListing").append('</div>');
 
+
     }).done(function() {
 
         setTimeout(function() {
