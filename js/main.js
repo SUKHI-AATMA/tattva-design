@@ -483,7 +483,7 @@ $(window).on('load', function() {
 
     // Home page
     if($(".section-slider").length){
-        HomeSlider();
+        // HomeSlider();
     } 
 
     // Project Listing page
