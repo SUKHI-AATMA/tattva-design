@@ -139,7 +139,7 @@ request({
                                 </ul>
                             </div>
                             <div class="right-wrap">
-                                <a class="link" href="contact">Contact</a>
+                                <a class="link" href="/contact">Contact</a>
                             </div>
                         </div>
                     </div>
@@ -320,7 +320,7 @@ request({
                                 </ul>
                             </div>
                             <div class="right-wrap">
-                                <a class="link" href="contact">Contact</a>
+                                <a class="link" href="/contact">Contact</a>
                             </div>
                         </div>
                     </div>
@@ -580,7 +580,7 @@ request({
                                 </ul>
                             </div>
                             <div class="right-wrap">
-                                <a class="link" href="contact">Contact</a>
+                                <a class="link" href="/contact">Contact</a>
                             </div>
                         </div>
                     </div>
