@@ -7,7 +7,7 @@ $(document).ready(function() {
     if ($('.section-social').length) {
         var userFeed = new Instafeed({
             get: 'user',
-            userId: '1202870229',
+            userId: '17674892419',
             clientId: '7a6f93d225f649a2af63bde6f3731f97',
             accessToken: '1202870229.7a6f93d.a7bfcf9cd7c04067b8ea0121113b2ec4',
             resolution: 'standard_resolution',

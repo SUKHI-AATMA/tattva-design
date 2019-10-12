@@ -89,13 +89,13 @@ request({
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a class="menu-link" href="work">Work</a>
+                                            <a class="menu-link" href="/work">Work</a>
                                         </li>
                                         <li>
-                                            <a class="menu-link" href="about">About</a>
+                                            <a class="menu-link" href="/about">About</a>
                                         </li>
                                         <li>
-                                            <a class="menu-link" href="contact">Contact</a>
+                                            <a class="menu-link" href="/contact">Contact</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -243,10 +243,10 @@ request({
                                             <a class="menu-link active" href="javascript:;">Work</a>
                                         </li>
                                         <li>
-                                            <a class="menu-link" href="about">About</a>
+                                            <a class="menu-link" href="/about">About</a>
                                         </li>
                                         <li>
-                                            <a class="menu-link" href="contact">Contact</a>
+                                            <a class="menu-link" href="/contact">Contact</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -456,13 +456,13 @@ request({
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a class="menu-link" href="work">Work</a>
+                                            <a class="menu-link" href="/work">Work</a>
                                         </li>
                                         <li>
-                                            <a class="menu-link" href="about">About</a>
+                                            <a class="menu-link" href="/about">About</a>
                                         </li>
                                         <li>
-                                            <a class="menu-link" href="contact">Contact</a>
+                                            <a class="menu-link" href="/contact">Contact</a>
                                         </li>
                                     </ul>
                                 </nav>
