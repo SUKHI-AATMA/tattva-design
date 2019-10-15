@@ -19,7 +19,9 @@ $(document).ready(function() {
         userFeed.run();
     }
 
+    //https://api.instagram.com/v1/users/self/media/recent/?access_token=17674892419.901b781.8949c32db32d44329799ee280c37ff06
 
+    // graph.facebook.com/17674892419/media
 
     $('.scroll-arrow').click(function() {
         $('html, body').animate({ scrollTop: $('.section-abt').offset().top }, 1200);
