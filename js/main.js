@@ -7,9 +7,9 @@ $(document).ready(function() {
     if ($('.section-social').length) {
         var userFeed = new Instafeed({
             get: 'user',
-            userId: '1202870229',
-            clientId: '7a6f93d225f649a2af63bde6f3731f97',
-            accessToken: '1202870229.7a6f93d.a7bfcf9cd7c04067b8ea0121113b2ec4',
+            userId: '17674892419',
+            clientId: '901b781436b64f5890de1353c5c900a4',
+            accessToken: '17674892419.901b781.8949c32db32d44329799ee280c37ff06',
             resolution: 'standard_resolution',
             template: '<a class="box" href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a>',
             sortBy: 'most-recent',
@@ -212,6 +212,7 @@ function HomeSlider() {
         $("#HomeSlider").append(output);
         // $("#projectListing").append('</div>');
 
+
     }).done(function() {
 
         setTimeout(function() {
@@ -262,18 +263,18 @@ function projectListing() {
             // console.log(result);
             if (result.status == 'show') {
                 output += `<div class="item `+ result.category +`" data-category="` + result.category + `">
-<a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="work-detail?` + result.title.replace(/\s+/g, '-') + `&rowIndex=` + result.rowIndex + `">
-<div class="desc">
-<img src="` + result.img + `" alt="">
-</div>
-<div class="content" style="` + result.styles + `">
-<h2>` + result.title + `</h2>
-<div class="hide">
-<p>` + result.desc + `</p>
-</div>
-</div>
-</a>
-</div>`;
+                <a class="link" data-id="` + result.id + `" data-rowIndex="` + result.rowIndex + `" href="projects/` + result.title.replace(/\s+/g, '-').toLowerCase() + `">
+                <div class="desc">
+                <img src="` + result.img + `" alt="">
+                </div>
+                <div class="content" style="` + result.styles + `">
+                <h2>` + result.title + `</h2>
+                <div class="hide">
+                <p>` + result.desc + `</p>
+                </div>
+                </div>
+                </a>
+                </div>`;
             }
             // $('a.link').on('click',function(){
             //     projectDetail(getParameterByName('rowIndex'));
@@ -483,12 +484,12 @@ $(window).on('load', function() {
 
     // Home page
     if($(".section-slider").length){
-        HomeSlider();
+        // HomeSlider();
     } 
 
     // Project Listing page
     if ($("#projectListing").length) {
-        projectListing();
+        // projectListing();
     }
 
 

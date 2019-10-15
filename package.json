@@ -1,0 +1,19 @@
+{
+  "name": "nanogen",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./scripts/build",
+    "build:prod": "cross-env NODE_ENV=production node ./scripts/build",
+    "serve": "serve ./public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "fs-extra": "^5.0.0",
+    "request": "^2.88.0"
+  }
+}
