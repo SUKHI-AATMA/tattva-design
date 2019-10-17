@@ -444,6 +444,13 @@ function projectDetail(rowIndex) {
                             pageDots: false,
                             freeScroll: true
                         });
+                        var $carousel = $('.carousel').flickity();
+
+                        $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
+                            if (typeof cellIndex == 'number') {
+                                $carousel.flickity('selectCell', cellIndex);
+                            }
+                        });
                         $('.loading').fadeOut(300, '', function() {
                             $('.loading').remove();
                         });
