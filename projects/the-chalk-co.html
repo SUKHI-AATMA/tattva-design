@@ -124,15 +124,11 @@
                             pageDots: false,
                             freeScroll: true
                         });
-                        
-
                         $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
                             if (typeof cellIndex == 'number') {
                                 $carousel.flickity('selectCell', cellIndex);
                             }
                         });
-                        
-                        console.log('h......i');
                     });
                 }
                 $('.loading').fadeOut(300, '', function() {
