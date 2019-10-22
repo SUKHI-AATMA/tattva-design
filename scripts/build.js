@@ -159,11 +159,16 @@ request({
                             pageDots: false,
                             freeScroll: true
                         });
-                        $('.loading').fadeOut(300, '', function() {
-                            $('.loading').remove();
+                        $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
+                            if (typeof cellIndex == 'number') {
+                                $carousel.flickity('selectCell', cellIndex);
+                            }
                         });
                     });
                 }
+                $('.loading').fadeOut(300, '', function() {
+                    $('.loading').remove();
+                });
             });
             </script>
             </body>
