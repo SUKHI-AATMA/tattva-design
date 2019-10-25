@@ -430,7 +430,7 @@ function projectDetail(rowIndex) {
         $("#projectDetail ul").append(output);
         $("#projectDetail ul").append('</ul>');
         //if ($(window).width() > 990) {
-<<<<<<< HEAD
+
             setTimeout(function() {
                 
                 if ($(window).width() > 990) {
@@ -440,7 +440,7 @@ function projectDetail(rowIndex) {
                         // $(this).slideUp();
                         var $carousel = $('.carousel').flickity({
                             contain: true,
-                            pageDots: false,
+                            pageDots: 2false,
                             freeScroll: true
                         });
                         
@@ -476,62 +476,7 @@ function projectDetail(rowIndex) {
                     $('.loading').remove();
                 });
             }, 1000);
-=======
-        // setTimeout(function() {
-        $("#projectDetail ul img").each(function() {
-            var $this = $(this);
-            var src = $this.attr('data-src');
-            $.ajax({
-                url: src,
-                success: function(result) {
-                    // $("#div1").html(result);
-                    flag = flag + 1;
-                    if ($("#projectDetail ul img").length == flag) {
-                        // console.log(111);
-                        if ($(window).width() > 990) {
-                            //work-detail page slider
-                            var $carousel = $('.carousel').flickity({
-                                contain: true,
-                                pageDots: false,
-                                freeScroll: true
-                            });
 
-                            var $carousel = $('.carousel').flickity();
-
-                            $carousel.on('staticClick.flickity ', function(event, pointer, cellElement, cellIndex) {
-                                if (typeof cellIndex == 'number') {
-                                    $carousel.flickity('selectCell', cellIndex);
-                                }
-                            });
-                            // setTimeout(function() {
-                            var addthis_share = {
-                               url: window.location,
-                               title: data['metaTitle'],
-                               description: data['metaDescription'],
-                               media: data['metaImage']
-                            }
-                            $('.addthis_toolbox').attr('data-url', window.location);
-                            $('.addthis_toolbox').attr('data-title', data['metaTitle']);
-                            $('.addthis_toolbox').attr('data-description', data['metaDescription']);
-                            $('.addthis_toolbox').attr('data-media', data['metaImage']);
-                            $('body').append('<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d847d43ac9d7f9b"></script>');
-                             // addthis:url="THE URL" addthis:title="THE TITLE" addthis:description="THE DESCRIPTION" addthis:media="THE IMAGE"
-                            // }, 900);
-                        }
-                        $('.loading').fadeOut(300, '', function() {
-                            $('.loading').remove();
-                        });
-                    }
-                    $this.attr('src', src);
-                }
-            });
-        });
-        // $('a.nextProject').on('click',function(){
-        //     projectDetail(getParameterByName('rowIndex'));
-        //     //localStorage.setItem('prodId', $(this).attr('data-rowIndex'))
-        // });
-        // }, 1000);
->>>>>>> a6cb23564086ea9f9edb1180c2f7430ad0102cc9
         //}
     });
 
@@ -552,16 +497,9 @@ $(document).ready(function() {
 $(window).on('load', function() {
 
     // Home page
-<<<<<<< HEAD
     if($(".section-slider").length){
         // HomeSlider();
     } 
-=======
-    if ($(".section-slider").length) {
-        HomeSlider();
-    }
->>>>>>> a6cb23564086ea9f9edb1180c2f7430ad0102cc9
-
     // Project Listing page
     if ($("#projectListing").length) {
         // projectListing();
