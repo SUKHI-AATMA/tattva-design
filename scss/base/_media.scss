@@ -24,6 +24,9 @@
     .section-contact {
         height: 100vh;
     }
+    .section-work .container .work-wrap .col .content p{
+        line-height: 1.3;
+    }
 }
 
 @media screen and (max-width: 1600px) {
@@ -234,11 +237,12 @@
         }
     }
     .section-work .container .work-wrap .col .content {
-        width: 750px;
-        padding: 25px 25px;
+        // width: 750px;
+        padding: 20px 20px;
     }
     .section-work .container .work-wrap .col .inner-col p{
         margin-bottom: 15px;
+        line-height: 1.3;
     }
     .section-contact {
         height: 100vh;
@@ -265,7 +269,10 @@
     }
     main.work-detail {
         height: calc(100vh - 168px);
+
     }
+
+
     
     .section-about .container .inner-wrap .col .content p,
     .section-abt .container .inner-wrap .col p,
@@ -328,7 +335,7 @@
         padding: 50px;
     }
     .section-work .container .work-wrap .col .content{
-        padding: 30px 30px;
+        padding: 20px 20px;
     }
     .section-work .container .work-wrap .col .content h3{
         font-size: 22px;

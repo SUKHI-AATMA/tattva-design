@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
 
+
 * {
     padding: 0;
     margin: 0;
@@ -32,6 +33,19 @@ h2{
     clear: both;
     width: 100%;
 }
+
+// .Width-650{
+//     width: 650px;
+// }
+// .Width-550{
+//     width: 550px;
+// }
+// .Width-450{
+//     width: 450px;
+// }
+// .Width-350{
+//     width: 350px;
+// }
 
 .flex {
     display: -webkit-box;
@@ -1039,6 +1053,10 @@ main.work-detail{
                         margin-bottom: 15px;
                         text-transform: uppercase;
                         color: #4b4c4a;
+
+                        &:first-child{
+                            margin-top: 0;
+                        }
                     }
                     p{
                         letter-spacing: 2px;

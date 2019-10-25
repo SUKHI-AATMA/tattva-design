@@ -1,24 +1,32 @@
 .loading {
-    display: flex;
+    // display: flex;
+    // position: fixed;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // z-index: 21;
+
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 21;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999;
+    background: url('../../images/Tattva-Loader.gif') 50% 50% no-repeat rgb(96, 96, 96);
 }
 
-.loading:before {
-    content: '';
-    display: flex;
-    width: 5000%;
-    height: 5000%;
-    background: rgba(0, 0, 0, 1);
-    z-index: 22;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+// .loading:before {
+//     content: '';
+//     display: flex;
+//     width: 5000%;
+//     height: 5000%;
+//     background: rgba(0, 0, 0, 1);
+//     z-index: 22;
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+// }
 
 .loader,
 .dot-container {
