@@ -27,7 +27,11 @@
     .section-work .container .work-wrap .col .content{
         padding: 30px 30px;
     }
+    .section-work .container .work-wrap .col .content .header-img{
+        max-width: 240px;
+    }
     .section-work .container .work-wrap .col .content p{
+        font-size: 18px;
         line-height: 1.3;
     }
 }
@@ -47,6 +51,9 @@
     .section-work .container .work-wrap .col .content{
         //width: 750px;
         padding: 30px 30px;
+    }
+    .section-work .container .work-wrap .col .content .header-img{
+        max-width: 240px;
     }
     .section-work .container .work-wrap .col .content p{
         font-size: 18px;
