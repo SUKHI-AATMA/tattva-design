@@ -440,7 +440,7 @@ function projectDetail(rowIndex) {
                         // $(this).slideUp();
                         var $carousel = $('.carousel').flickity({
                             contain: true,
-                            pageDots: 2false,
+                            pageDots: false,
                             freeScroll: true
                         });
                         
