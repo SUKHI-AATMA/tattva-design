@@ -16,6 +16,7 @@ var keyList = [
     'metaTitle',
     'metaDescription',
     'metaImage',
+    'fontLink',
 ];
 //Project details
 request({
@@ -55,6 +56,7 @@ request({
                 <meta http-equiv="X-UA-Compatible" content="ie=edge">
                 <link rel="stylesheet" href="/dist/css/style.css">
                 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+                <link href="` + jsonData.fontLink + `" rel="stylesheet">
 
                 <!-- <title>Tattva Design</title> -->
                 <title>` + jsonData.metaTitle + ` | Tattva Design</title>
