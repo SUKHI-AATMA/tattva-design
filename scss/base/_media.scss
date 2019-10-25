@@ -201,6 +201,9 @@
     .section-workshow .container .workshow-wrap .filter-wrap .filter-body .filter-box .item a.link .content p{
         font-size: 24px;
     }
+    .section-work .container .work-wrap .nextproject{
+        width: 450px;
+    }
     
 
     // contact page
@@ -269,7 +272,7 @@
         width: 70px;
     }
     main.work-detail {
-        height: calc(100vh - 168px);
+        height: calc(100vh - 155px);
 
     }
 
